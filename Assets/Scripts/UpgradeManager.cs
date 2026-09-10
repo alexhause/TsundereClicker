@@ -13,8 +13,6 @@ public class UpgradeManager : MonoBehaviour
     private int countCoinForDropUpgradeCost = 10;
     private int jackpotUpgradeCost = 10;
 
-    [SerializeField] private CoinManager coinManager;
-
     public int ClickUpgradeCost { get { return clickUpgradeCost; } }
     public int ChanceCoinDropUpgradeCost { get { return chanceDropUpgradeCost; } }
     public int CountCoinForDroupgradeCost { get { return countCoinForDropUpgradeCost; } }
@@ -36,7 +34,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyClickUpgrade()
     {
-        if(coinManager.TrySpendCoin(clickUpgradeCost))
+        if(CoinManager.Instance.TrySpendCoin(clickUpgradeCost))
         {
             clickUpgradeCost *= 2;
             OnClickUpgrade?.Invoke();
@@ -49,7 +47,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyChanceCoinDropUpgrade()
     {
-        if (coinManager.TrySpendCoin(chanceDropUpgradeCost))
+        if (CoinManager.Instance.TrySpendCoin(chanceDropUpgradeCost))
         {
             chanceDropUpgradeCost *= 2;
             OnChanceCoinDropUpgrade?.Invoke();
@@ -62,7 +60,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyCountCoinForDropUpgrade()
     {
-        if (coinManager.TrySpendCoin(countCoinForDropUpgradeCost))
+        if (CoinManager.Instance.TrySpendCoin(countCoinForDropUpgradeCost))
         {
             countCoinForDropUpgradeCost *= 2;
             OnCoutCoinForDropUpgrade?.Invoke();
@@ -75,7 +73,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyJackpotUpgrade()
     {
-        if (coinManager.TrySpendCoin(jackpotUpgradeCost))
+        if (CoinManager.Instance.TrySpendCoin(jackpotUpgradeCost))
         {
             jackpotUpgradeCost *= 2;
             OnJackpotUpgrade?.Invoke();
