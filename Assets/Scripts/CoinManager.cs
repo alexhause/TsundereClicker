@@ -15,7 +15,7 @@ public class CoinManager : MonoBehaviour
 
     [SerializeField] private int jackpotAmount = 1; //размер выплаты джекпота
     [SerializeField] private int countCoinForDrop = 0; //сколько монет дают за один дроп
-    [SerializeField, Range(0f, 1f)] private float coinDropChance = 0.0f; //вероятсность дропа
+    [SerializeField, Range(2, 100)] private float coinDropChance = 5; //вероятсность дропа
 
     [SerializeField] ClickHendler clickHendler;
     [SerializeField] ProgressBarManager progressBarManager;
@@ -67,15 +67,15 @@ public class CoinManager : MonoBehaviour
 
     private void UpgradeManager_OnChanceCoinDropUpgrade()
     {
-        if(coinDropChance < 1f)
+        if(coinDropChance < 100)
         {
-            coinDropChance += 0.01f;
+            coinDropChance += 5;
             OnCoinChange?.Invoke(currentCoinCount);
             OnCoinDropChanceChange?.Invoke(coinDropChance);
         }
         else
         {
-            coinDropChance = 1f;
+            coinDropChance = 100;
             OnCoinDropChanceChange?.Invoke(coinDropChance);
             OnCoinChange?.Invoke(currentCoinCount);
             OnMaxDropChance?.Invoke();
@@ -90,7 +90,7 @@ public class CoinManager : MonoBehaviour
 
     private void ClickHendler_OnClick()
     {
-        if(UnityEngine.Random.value <= coinDropChance)
+        if(UnityEngine.Random.value * 100 <= coinDropChance)
         {
             currentCoinCount += countCoinForDrop;
             OnCoinDrop?.Invoke(currentCoinCount);

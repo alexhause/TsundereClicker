@@ -42,7 +42,7 @@ public class UIHandler : MonoBehaviour
 
 
         clickUpgradeCostText.text = UpgradeManager.Instance.ClickUpgradeCost.ToString();
-        chanceCoinDropText.text = CoinManager.Instance.CoinDropChance.ToString();
+        chanceCoinDropText.text = CoinManager.Instance.CoinDropChance.ToString() + "%";
         chanceCoinDropUpgradeCost.text = UpgradeManager.Instance.ChanceCoinDropUpgradeCost.ToString();
         countCoinForDropUgradeCostText.text = UpgradeManager.Instance.CountCoinForDroupgradeCost.ToString();
         jackpotUpgradeCostText.text = UpgradeManager.Instance.JackpotUpgradeCost.ToString();
@@ -75,7 +75,7 @@ public class UIHandler : MonoBehaviour
 
     private void CoinManager_OnCoinDropChanceChange(float obj)
     {
-        chanceCoinDropText.text = CoinManager.Instance.CoinDropChance.ToString();
+        chanceCoinDropText.text = CoinManager.Instance.CoinDropChance.ToString() + "%";
     }
 
     private void CoinManager_OnCoinDrop(int currentCoinCount)
