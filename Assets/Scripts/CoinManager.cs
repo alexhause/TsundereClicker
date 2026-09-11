@@ -15,13 +15,13 @@ public class CoinManager : MonoBehaviour
 
     [SerializeField] private int jackpotAmount = 1; //размер выплаты джекпота
     [SerializeField] private int countCoinForDrop = 0; //сколько монет дают за один дроп
-    [SerializeField, Range(2, 100)] private float coinDropChance = 5; //вероятсность дропа
+    [SerializeField, Range(2, 100)] private int coinDropChance = 5; //вероятсность дропа
 
     [SerializeField] ClickHendler clickHendler;
     [SerializeField] ProgressBarManager progressBarManager;
 
     public int CurrentCoinCount { get { return currentCoinCount; }  }
-    public float CoinDropChance { get { return coinDropChance; } }
+    public int CoinDropChance { get { return coinDropChance; } }
     public int CountCoinForDrop { get { return countCoinForDrop; } }
     public int JackpotAmount { get { return jackpotAmount; } }
 
