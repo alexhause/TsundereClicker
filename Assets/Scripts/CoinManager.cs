@@ -67,7 +67,7 @@ public class CoinManager : MonoBehaviour
 
     private void UpgradeManager_OnChanceCoinDropUpgrade()
     {
-        if(coinDropChance < 100)
+        if(coinDropChance < 95)
         {
             coinDropChance += 5;
             OnCoinChange?.Invoke(currentCoinCount);
