@@ -26,6 +26,7 @@ public class UIHandler : MonoBehaviour
     private void Start()
     {
         clickHendler.OnClick += ClickHendler_OnClick;
+        clickHendler.OnTotalClickChange += ClickHendler_OnTotalClickChange;
 
         CoinManager.Instance.OnCoinDrop += CoinManager_OnCoinDrop;
         CoinManager.Instance.OnCoinChange += CoinManager_OnCoinChange;
@@ -53,6 +54,7 @@ public class UIHandler : MonoBehaviour
     private void OnDestroy()
     {
         clickHendler.OnClick -= ClickHendler_OnClick;
+        clickHendler.OnTotalClickChange -= ClickHendler_OnTotalClickChange;
         CoinManager.Instance.OnCoinDrop -= CoinManager_OnCoinDrop;
         CoinManager.Instance.OnCoinChange -= CoinManager_OnCoinChange;
         UpgradeManager.Instance.OnClickUpgrade -= UpgradeManager_OnClickUpgrade;
@@ -67,11 +69,11 @@ public class UIHandler : MonoBehaviour
         coinChanceUpgradeBtn.enabled = false;
         chanceCoinDropUpgradeCost.text = "MAX";
     }
+
     private void CoinManager_OnJackpotAmountChange()
     {
         jackpotAmountText.text = "+" + CoinManager.Instance.JackpotAmount.ToString();
     }
-
 
     private void CoinManager_OnCoinDropChanceChange(float obj)
     {
@@ -87,12 +89,10 @@ public class UIHandler : MonoBehaviour
     {
         countCoinForDropText.text = "+" + CoinManager.Instance.CountCoinForDrop.ToString();
     }
-
     private void CoinManager_OnCoinChange(int newCoinCount)
     {
         currentCoinCountText.text = newCoinCount.ToString();
     }
-
 
     private void UpgradeManager_OnCoutCoinForDropUpgrade()
     {
@@ -118,6 +118,11 @@ public class UIHandler : MonoBehaviour
     {
         pointCountText.text = clickHendler.TotalClick.ToString();
     }
+    private void ClickHendler_OnTotalClickChange()
+    {
+        pointCountText.text = clickHendler.TotalClick.ToString();
+    }
+
     #endregion
 
 
