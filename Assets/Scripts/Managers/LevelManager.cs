@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour
 
     public event Action OnStageComplete;
     public event Action<StageData> OnStageChanged;
-
+    public event Action<LevelData> OnNewLevelStart;
 
     [SerializeField] private LevelData[] levels;
     [SerializeField] private ClickHendler clickHendler;
@@ -67,6 +67,7 @@ public class LevelManager : MonoBehaviour
         {
             currentLevel++;
             currentStage = 0;
+            OnNewLevelStart?.Invoke(levels[currentLevel]);
         }
 
     }

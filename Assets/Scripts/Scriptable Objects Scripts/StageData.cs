@@ -4,5 +4,5 @@ using UnityEngine;
 public class StageData
 {
     public int targetScore;
-    public Sprite characterSprites;
+    public Sprite characterSprite;
 }
