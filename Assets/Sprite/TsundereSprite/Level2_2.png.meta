@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 6e5b6679f46e5674e93ccadf90b8bcbc
+guid: ad5caf1975706204e87d1370e99c76ee
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6072243080939056606
-    second: nova_anime_output_00031_-Photoroom_0
+      213: 1282895685641259505
+    second: Level2_2_0
+  - first:
+      213: -872421783851664447
+    second: Level2_2_1
+  - first:
+      213: -2063995231555037340
+    second: Level2_2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: nova_anime_output_00031_-Photoroom_0
+      name: Level2_2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 17
+        y: 22
         width: 1024
-        height: 1511
+        height: 1506
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: edd2235f8e0f44450800000000000000
-      internalID: 6072243080939056606
+      spriteID: 1f9478a34d2cdc110800000000000000
+      internalID: 1282895685641259505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level2_2_1
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 1322
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cb7537820984e3f0800000000000000
+      internalID: -872421783851664447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level2_2_2
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 1243
+        width: 16
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 467df0db5473b53e0800000000000000
+      internalID: -2063995231555037340
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      nova_anime_output_00031_-Photoroom_0: 6072243080939056606
+      Level2_2_0: 1282895685641259505
+      Level2_2_1: -872421783851664447
+      Level2_2_2: -2063995231555037340
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

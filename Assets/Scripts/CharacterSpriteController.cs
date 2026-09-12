@@ -12,15 +12,22 @@ public class CharacterSpriteController : MonoBehaviour
     void Start()
     {
         levelManager.OnStageChanged += LevelManager_OnStageChanged;
+        levelManager.OnNewLevelStart += LevelManager_OnNewLevelStart;
     }
 
     private void OnDestroy()
     {
         levelManager.OnStageChanged -= LevelManager_OnStageChanged;
+        levelManager.OnNewLevelStart -= LevelManager_OnNewLevelStart;
     }
 
     private void LevelManager_OnStageChanged(StageData nextStage)
     {
-        characterSpriteRenderer.sprite = nextStage.characterSprites;
+        characterSpriteRenderer.sprite = nextStage.characterSprite;
+    }
+
+    private void LevelManager_OnNewLevelStart(LevelData newLevel)
+    {
+        characterSpriteRenderer.sprite = newLevel.stages[0].characterSprite;
     }
 }

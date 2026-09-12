@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a82a4496394900a4d884469038670424
+guid: 4b038d060c990754b990ad519637bbae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1694283047680258047
-    second: nova_anime_output_00049_-Photoroom_0
+      213: 2800116070329559138
+    second: nova_anime_output_00024_-Photoroom_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: nova_anime_output_00049_-Photoroom_0
+      name: nova_anime_output_00024_-Photoroom_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 14
         width: 1024
-        height: 1528
+        height: 1514
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1005d0a7b82bc78e0800000000000000
-      internalID: -1694283047680258047
+      spriteID: 2682bd5fab20cd620800000000000000
+      internalID: 2800116070329559138
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      nova_anime_output_00049_-Photoroom_0: -1694283047680258047
+      nova_anime_output_00024_-Photoroom_0: 2800116070329559138
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
