@@ -8,7 +8,10 @@ public class ClickHendler : MonoBehaviour, IPointerClickHandler
     public event Action OnTotalClickChange;
     public event Action OnClick;
 
+    public event Action<int> OnClickAdded;
+
     public int TotalClick { get { return totalClick; } }
+    public int ClickPower { get { return clickPower; } }
 
     [SerializeField] private LevelManager levelManager;
 
@@ -19,6 +22,7 @@ public class ClickHendler : MonoBehaviour, IPointerClickHandler
     {
         totalClick += clickPower;
         OnClick?.Invoke();
+        OnClickAdded?.Invoke(clickPower);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

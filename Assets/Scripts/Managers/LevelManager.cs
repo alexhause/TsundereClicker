@@ -10,18 +10,26 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private LevelData[] levels;
     [SerializeField] private ClickHendler clickHendler;
+    [SerializeField] private GameObject levelProgressBar;
+
+    private LevelProgressBarManager levelProgressBarManager;
     private int currentLevel = 0;
     private int currentStage = 0;
 
     private void Start()
     {
+        levelProgressBarManager = levelProgressBar.GetComponent<LevelProgressBarManager>();
         clickHendler.OnClick += ClickHendler_OnClick;
     }
 
     private void ClickHendler_OnClick()
     {
         if (!IsStageCompleted())
+        {
+            levelProgressBarManager.AddProgress((float)clickHendler.ClickPower / levels[currentLevel].stages[currentStage].targetScore);
             return;
+        }
+            
         CompleteStage();
     }
 
