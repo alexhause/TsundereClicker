@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8969f93ea61a6404a9f52e64b0a2a8a6, type: 3}
   m_Name: Level_2
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  stages: []
+  stages:
+  - targetScore: 10
+    characterSprite: {fileID: 2647293422998743108, guid: 4b038d060c990754b990ad519637bbae, type: 3}
+  - targetScore: 15
+    characterSprite: {fileID: 1282895685641259505, guid: ad5caf1975706204e87d1370e99c76ee, type: 3}

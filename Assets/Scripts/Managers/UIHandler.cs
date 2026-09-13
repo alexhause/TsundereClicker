@@ -18,10 +18,13 @@ public class UIHandler : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI jackpotAmountText;
 
+    [SerializeField] private TextMeshProUGUI targetScoreTxt;
+
     [SerializeField] private Button coinChanceUpgradeBtn;
 
 
     [SerializeField] private ClickHendler clickHendler;
+    [SerializeField] private LevelManager levelManager;
 
     private void Start()
     {
@@ -40,6 +43,8 @@ public class UIHandler : MonoBehaviour
         UpgradeManager.Instance.OnCoutCoinForDropUpgrade += UpgradeManager_OnCoutCoinForDropUpgrade;
         UpgradeManager.Instance.OnJackpotUpgrade += UpgradeManager_OnJackpotUpgrade;
 
+        levelManager.OnStageChanged += LevelManager_OnStageChanged;
+        levelManager.OnNewLevelStart += LevelManager_OnNewLevelStart;
 
 
         clickUpgradeCostText.text = UpgradeManager.Instance.ClickUpgradeCost.ToString();
@@ -49,6 +54,7 @@ public class UIHandler : MonoBehaviour
         jackpotUpgradeCostText.text = UpgradeManager.Instance.JackpotUpgradeCost.ToString();
         countCoinForDropText.text = "+" + CoinManager.Instance.CountCoinForDrop.ToString();
         jackpotAmountText.text = "+" + CoinManager.Instance.JackpotAmount.ToString();
+        targetScoreTxt.text = levelManager.StageTargetScore.ToString();
     }
 
     private void OnDestroy()
@@ -61,6 +67,8 @@ public class UIHandler : MonoBehaviour
         UpgradeManager.Instance.OnChanceCoinDropUpgrade -= UpgradeManager_OnChanceCoinDropUpgrade;
         UpgradeManager.Instance.OnCoutCoinForDropUpgrade -= UpgradeManager_OnCoutCoinForDropUpgrade;
         CoinManager.Instance.OnJackpotAmountChange -= CoinManager_OnJackpotAmountChange;
+        levelManager.OnStageChanged -= LevelManager_OnStageChanged;
+        levelManager.OnNewLevelStart -= LevelManager_OnNewLevelStart;
     }
 
     #region Методы обработки событий  
@@ -121,6 +129,16 @@ public class UIHandler : MonoBehaviour
     private void ClickHendler_OnTotalClickChange()
     {
         pointCountText.text = clickHendler.TotalClick.ToString();
+    }
+
+    private void LevelManager_OnStageChanged(StageData newStage)
+    {
+        targetScoreTxt.text = newStage.targetScore.ToString();
+    }
+
+    private void LevelManager_OnNewLevelStart(LevelData newLevel)
+    {
+        targetScoreTxt.text = newLevel.stages[0].targetScore.ToString();
     }
 
     #endregion

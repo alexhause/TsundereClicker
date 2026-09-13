@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     public event Action OnStageComplete;
     public event Action<StageData> OnStageChanged;
     public event Action<LevelData> OnNewLevelStart;
+    public int StageTargetScore {  get; private set; }
 
     [SerializeField] private LevelData[] levels;
     [SerializeField] private ClickHendler clickHendler;
@@ -16,8 +17,13 @@ public class LevelManager : MonoBehaviour
     private int currentLevel = 0;
     private int currentStage = 0;
 
-    private void Start()
+    private void Awake()
     {
+        StageTargetScore = levels[currentLevel].stages[currentStage].targetScore;
+    }
+
+    private void Start()
+    {     
         levelProgressBarManager = levelProgressBar.GetComponent<LevelProgressBarManager>();
         clickHendler.OnClick += ClickHendler_OnClick;
     }
@@ -46,7 +52,6 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("STAGE COMPLETE!");
         OnStageComplete?.Invoke();
-
         if (IsLastStage())
         {
             CompleteLevel();
