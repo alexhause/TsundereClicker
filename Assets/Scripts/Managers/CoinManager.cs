@@ -61,7 +61,7 @@ public class CoinManager : MonoBehaviour
 
     private void UpgradeManager_OnJackpotUpgrade()
     {
-        jackpotAmount += 1;
+        jackpotAmount += 5;
         OnJackpotAmountChange?.Invoke();
     }
 

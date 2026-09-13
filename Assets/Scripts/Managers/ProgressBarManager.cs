@@ -50,7 +50,7 @@ public class ProgressBarManager : MonoBehaviour
     {
         if(barfillPercentage > 0.02f)
         {
-            barfillPercentage -= 0.02f;
+            barfillPercentage -= 0.001f;
         }
     }
 }
