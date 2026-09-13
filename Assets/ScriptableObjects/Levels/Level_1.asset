@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level_1
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   stages:
-  - targetScore: 10
+  - targetScore: 100
     characterSprite: {fileID: -546206289404249308, guid: a82a4496394900a4d884469038670424, type: 3}
-  - targetScore: 15
+  - targetScore: 500
     characterSprite: {fileID: -8996063059128657742, guid: 6e5b6679f46e5674e93ccadf90b8bcbc, type: 3}

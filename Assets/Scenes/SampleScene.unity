@@ -311,8 +311,10 @@ MonoBehaviour:
   countCoinForDropUgradeCostText: {fileID: 237965491}
   jackpotUpgradeCostText: {fileID: 1732110151}
   jackpotAmountText: {fileID: 218710485}
+  targetScoreTxt: {fileID: 1091239349}
   coinChanceUpgradeBtn: {fileID: 201094671}
   clickHendler: {fileID: 835154513}
+  levelManager: {fileID: 2045400575}
 --- !u!223 &20937913
 Canvas:
   m_ObjectHideFlags: 0
