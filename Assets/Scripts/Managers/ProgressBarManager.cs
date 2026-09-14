@@ -8,7 +8,7 @@ public class ProgressBarManager : MonoBehaviour
 
     [SerializeField, Range(0, 1f)] private float barfillPercentage;
 
-    [SerializeField] private ClickHendler clickHendler;
+    [SerializeField] private ClickHandler clickHendler;
     [SerializeField] private Image progressBarFillImage;
     
 

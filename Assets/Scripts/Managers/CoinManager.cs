@@ -17,7 +17,7 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private int countCoinForDrop = 0; //сколько монет дают за один дроп
     [SerializeField, Range(2, 100)] private int coinDropChance = 5; //вероятсность дропа
 
-    [SerializeField] ClickHendler clickHendler;
+    [SerializeField] ClickHandler clickHendler;
     [SerializeField] ProgressBarManager progressBarManager;
 
     public int CurrentCoinCount { get { return currentCoinCount; }  }

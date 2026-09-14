@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class ClickHendler : MonoBehaviour, IPointerClickHandler
+public class ClickHandler : MonoBehaviour, IPointerClickHandler
 {
     public event Action OnTotalClickChange;
     public event Action OnClick;

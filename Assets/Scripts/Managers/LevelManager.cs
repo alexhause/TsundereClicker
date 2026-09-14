@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     public int StageTargetScore {  get; private set; }
 
     [SerializeField] private LevelData[] levels;
-    [SerializeField] private ClickHendler clickHendler;
+    [SerializeField] private ClickHandler clickHendler;
     [SerializeField] private GameObject levelProgressBar;
 
     private LevelProgressBarManager levelProgressBarManager;

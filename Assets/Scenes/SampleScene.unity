@@ -313,7 +313,7 @@ MonoBehaviour:
   jackpotAmountText: {fileID: 218710485}
   targetScoreTxt: {fileID: 1091239349}
   coinChanceUpgradeBtn: {fileID: 201094671}
-  clickHendler: {fileID: 835154513}
+  clickHendler: {fileID: 835154518}
   levelManager: {fileID: 2045400575}
 --- !u!223 &20937913
 Canvas:
@@ -1032,7 +1032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressBarManager
   barfillPercentage: 0.1
-  clickHendler: {fileID: 835154513}
+  clickHendler: {fileID: 835154518}
   progressBarFillImage: {fileID: 141710269}
 --- !u!1 &265990469
 GameObject:
@@ -2431,6 +2431,9 @@ GameObject:
   - component: {fileID: 835154514}
   - component: {fileID: 835154513}
   - component: {fileID: 835154515}
+  - component: {fileID: 835154518}
+  - component: {fileID: 835154517}
+  - component: {fileID: 835154516}
   m_Layer: 0
   m_Name: Tsundere
   m_TagString: Untagged
@@ -2451,6 +2454,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHendler
   levelManager: {fileID: 2045400575}
+  clickPower: 1
+  totalClick: 0
 --- !u!4 &835154514
 Transform:
   m_ObjectHideFlags: 0
@@ -2460,7 +2465,7 @@ Transform:
   m_GameObject: {fileID: 835154511}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -2.56, z: 0}
+  m_LocalPosition: {x: 1, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2513,6 +2518,55 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5, y: 10}
   m_EdgeRadius: 0
+--- !u!95 &835154516
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835154511}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51718d7ab618b244a9f024a1861a8da3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &835154517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835154511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b3247e730662b45b058c81499ef080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TsundereAnimation
+  animator: {fileID: 835154516}
+  clickHandler: {fileID: 835154518}
+--- !u!114 &835154518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835154511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3dbdeba1d32895498b6f46ba596e2d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
+  levelManager: {fileID: 2045400575}
 --- !u!1 &850880046
 GameObject:
   m_ObjectHideFlags: 0
@@ -4446,7 +4500,7 @@ MonoBehaviour:
   jackpotAmount: 5
   countCoinForDrop: 1
   coinDropChance: 5
-  clickHendler: {fileID: 835154513}
+  clickHendler: {fileID: 835154518}
   progressBarManager: {fileID: 251461763}
 --- !u!4 &2014381977
 Transform:
@@ -4495,7 +4549,7 @@ MonoBehaviour:
   levels:
   - {fileID: 11400000, guid: 325e6467bdf920246b9d7ee027b09c7c, type: 2}
   - {fileID: 11400000, guid: 9e84fbf26838b1646b0aa5515509202c, type: 2}
-  clickHendler: {fileID: 835154513}
+  clickHendler: {fileID: 835154518}
   levelProgressBar: {fileID: 870032578}
 --- !u!4 &2045400576
 Transform:

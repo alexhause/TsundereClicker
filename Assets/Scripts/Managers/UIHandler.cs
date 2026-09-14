@@ -23,7 +23,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private Button coinChanceUpgradeBtn;
 
 
-    [SerializeField] private ClickHendler clickHendler;
+    [SerializeField] private ClickHandler clickHendler;
     [SerializeField] private LevelManager levelManager;
 
     private void Start()
