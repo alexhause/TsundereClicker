@@ -7,16 +7,22 @@ public class UpgradeManager : MonoBehaviour
     public event Action OnChanceCoinDropUpgrade;
     public event Action OnCoutCoinForDropUpgrade;
     public event Action OnJackpotUpgrade;
+    public event Action OnAutoclickerUnlock;
+    public event Action OnAutoclickerUpgrade;
 
     private int clickUpgradeCost = 10;
     private int chanceDropUpgradeCost = 10;
     private int countCoinForDropUpgradeCost = 10;
     private int jackpotUpgradeCost = 10;
+    private int autoclickerUnlockCost = 1000;
+    private int autoclickerUpgradeCost = 10000;
 
     public int ClickUpgradeCost { get { return clickUpgradeCost; } }
     public int ChanceCoinDropUpgradeCost { get { return chanceDropUpgradeCost; } }
     public int CountCoinForDroupgradeCost { get { return countCoinForDropUpgradeCost; } }
     public int JackpotUpgradeCost {  get { return jackpotUpgradeCost; } }
+    public int AutoclickerUnlockCost { get { return autoclickerUnlockCost; }  }
+    public int AutoclickerUpgradeCost { get { return autoclickerUpgradeCost; } }
 
     public static UpgradeManager Instance { get; private set; }
 
@@ -77,6 +83,31 @@ public class UpgradeManager : MonoBehaviour
         {
             jackpotUpgradeCost *= 2;
             OnJackpotUpgrade?.Invoke();
+        }
+        else
+        {
+            Debug.Log("NO COIN!");
+        }
+    }
+
+    public void BuyAutoclikerUnlock()
+    {
+        if (CoinManager.Instance.TrySpendCoin(autoclickerUnlockCost))
+        {
+            OnAutoclickerUnlock?.Invoke();
+        }
+        else
+        {
+            Debug.Log("NO COIN!");
+        }
+    }
+
+    public void BuyAutoclikerUpgrade()
+    {
+        if (CoinManager.Instance.TrySpendCoin(autoclickerUpgradeCost))
+        {
+            autoclickerUpgradeCost *= 2;
+            OnAutoclickerUpgrade?.Invoke();
         }
         else
         {

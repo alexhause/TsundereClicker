@@ -15,6 +15,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI chanceCoinDropUpgradeCost;
     [SerializeField] private TextMeshProUGUI countCoinForDropUgradeCostText;
     [SerializeField] private TextMeshProUGUI jackpotUpgradeCostText;
+    [SerializeField] private TextMeshProUGUI autoclickerUpgradeCostText;
 
     [SerializeField] private TextMeshProUGUI jackpotAmountText;
 
@@ -55,6 +56,7 @@ public class UIHandler : MonoBehaviour
         countCoinForDropText.text = "+" + CoinManager.Instance.CountCoinForDrop.ToString();
         jackpotAmountText.text = "+" + CoinManager.Instance.JackpotAmount.ToString();
         targetScoreTxt.text = levelManager.StageTargetScore.ToString();
+        autoclickerUpgradeCostText.text = UpgradeManager.Instance.AutoclickerUnlockCost.ToString();
     }
 
     private void OnDestroy()

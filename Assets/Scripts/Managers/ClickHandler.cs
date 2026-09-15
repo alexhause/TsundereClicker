@@ -30,6 +30,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         UpgradeManager.Instance.OnClickUpgrade += UpgradeManager_OnUpgrade;
+        UpgradeManager.Instance.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
         levelManager.OnStageComplete += LevelManager_OnStageComplete;
     }
 
@@ -49,6 +50,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     private void OnDestroy()
     {
         UpgradeManager.Instance.OnClickUpgrade -= UpgradeManager_OnUpgrade;
+        UpgradeManager.Instance.OnAutoclickerUnlock -= Instance_OnAutoclickerUnlock;
         levelManager.OnStageComplete -= LevelManager_OnStageComplete;
     }
 
@@ -62,6 +64,11 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     private void UpgradeManager_OnUpgrade()
     {
         clickPower += 1;
+    }
+
+    private void Instance_OnAutoclickerUnlock()
+    {
+        autoClickerEnable = true;
     }
 
     private void LevelManager_OnStageComplete()

@@ -15,5 +15,5 @@ MonoBehaviour:
   stages:
   - targetScore: 1000
     characterSprite: {fileID: 2647293422998743108, guid: 4b038d060c990754b990ad519637bbae, type: 3}
-  - targetScore: 3000
+  - targetScore: 2000
     characterSprite: {fileID: 1282895685641259505, guid: ad5caf1975706204e87d1370e99c76ee, type: 3}

@@ -2414,8 +2414,8 @@ Transform:
   m_GameObject: {fileID: 731650393}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.023, y: -0.0335, z: 0}
-  m_LocalScale: {x: 1.1536084, y: 1.155831, z: 1}
+  m_LocalPosition: {x: -0.0003, y: 0.0911, z: 0}
+  m_LocalScale: {x: 1.2286178, y: 1.1793381, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2551,6 +2551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   levelManager: {fileID: 2045400575}
+  autoClickerEnable: 0
+  autoclickInterval: 1
 --- !u!1 &850880046
 GameObject:
   m_ObjectHideFlags: 0
