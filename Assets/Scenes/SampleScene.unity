@@ -2429,7 +2429,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 835154514}
-  - component: {fileID: 835154513}
   - component: {fileID: 835154515}
   - component: {fileID: 835154518}
   - component: {fileID: 835154517}
@@ -2441,21 +2440,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &835154513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835154511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c4739aedec2a84c818cd974c514e8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ClickHendler
-  levelManager: {fileID: 2045400575}
-  clickPower: 1
-  totalClick: 0
 --- !u!4 &835154514
 Transform:
   m_ObjectHideFlags: 0
@@ -3586,7 +3570,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0421\u0435\u0440\u0434\u0446\u0430 \u0437\u0430 \u043E\u0440\u0433\u0430\u0437\u043C"
+  m_text: "\u0421\u0435\u0440\u0434\u0446\u0430 \u0437\u0430 ******"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
