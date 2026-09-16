@@ -31,6 +31,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     {
         UpgradeManager.Instance.OnClickUpgrade += UpgradeManager_OnUpgrade;
         UpgradeManager.Instance.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
+        UpgradeManager.Instance.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
         levelManager.OnStageComplete += LevelManager_OnStageComplete;
     }
 
@@ -51,6 +52,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     {
         UpgradeManager.Instance.OnClickUpgrade -= UpgradeManager_OnUpgrade;
         UpgradeManager.Instance.OnAutoclickerUnlock -= Instance_OnAutoclickerUnlock;
+        UpgradeManager.Instance.OnAutoclickerUpgrade -= Instance_OnAutoclickerUpgrade;
         levelManager.OnStageComplete -= LevelManager_OnStageComplete;
     }
 
@@ -65,6 +67,20 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     {
         clickPower += 1;
     }
+
+    private void Instance_OnAutoclickerUpgrade()
+    {
+        if(autoclickInterval > 0f)
+        {
+            autoclickInterval -= 0.1f;
+        }
+
+        else
+        {
+            Debug.LogWarning("Autoclick == 0 !");
+        }
+    }
+
 
     private void Instance_OnAutoclickerUnlock()
     {

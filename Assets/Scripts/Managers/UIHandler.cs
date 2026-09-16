@@ -17,6 +17,8 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI jackpotUpgradeCostText;
     [SerializeField] private TextMeshProUGUI autoclickerUpgradeCostText;
 
+    [SerializeField] private Button autoClickerUpgradeBtn;
+
     [SerializeField] private TextMeshProUGUI jackpotAmountText;
 
     [SerializeField] private TextMeshProUGUI targetScoreTxt;
@@ -43,6 +45,8 @@ public class UIHandler : MonoBehaviour
         UpgradeManager.Instance.OnChanceCoinDropUpgrade += UpgradeManager_OnChanceCoinDropUpgrade;
         UpgradeManager.Instance.OnCoutCoinForDropUpgrade += UpgradeManager_OnCoutCoinForDropUpgrade;
         UpgradeManager.Instance.OnJackpotUpgrade += UpgradeManager_OnJackpotUpgrade;
+        UpgradeManager.Instance.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
+        UpgradeManager.Instance.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
 
         levelManager.OnStageChanged += LevelManager_OnStageChanged;
         levelManager.OnNewLevelStart += LevelManager_OnNewLevelStart;
@@ -63,12 +67,17 @@ public class UIHandler : MonoBehaviour
     {
         clickHendler.OnClick -= ClickHendler_OnClick;
         clickHendler.OnTotalClickChange -= ClickHendler_OnTotalClickChange;
+
         CoinManager.Instance.OnCoinDrop -= CoinManager_OnCoinDrop;
         CoinManager.Instance.OnCoinChange -= CoinManager_OnCoinChange;
+        CoinManager.Instance.OnJackpotAmountChange -= CoinManager_OnJackpotAmountChange;
+
         UpgradeManager.Instance.OnClickUpgrade -= UpgradeManager_OnClickUpgrade;
         UpgradeManager.Instance.OnChanceCoinDropUpgrade -= UpgradeManager_OnChanceCoinDropUpgrade;
         UpgradeManager.Instance.OnCoutCoinForDropUpgrade -= UpgradeManager_OnCoutCoinForDropUpgrade;
-        CoinManager.Instance.OnJackpotAmountChange -= CoinManager_OnJackpotAmountChange;
+        UpgradeManager.Instance.OnAutoclickerUnlock -= Instance_OnAutoclickerUnlock;
+        UpgradeManager.Instance.OnAutoclickerUpgrade -= Instance_OnAutoclickerUpgrade;
+
         levelManager.OnStageChanged -= LevelManager_OnStageChanged;
         levelManager.OnNewLevelStart -= LevelManager_OnNewLevelStart;
     }
@@ -122,6 +131,17 @@ public class UIHandler : MonoBehaviour
     private void UpgradeManager_OnJackpotUpgrade()
     {
         jackpotUpgradeCostText.text = UpgradeManager.Instance.JackpotUpgradeCost.ToString();
+    }
+
+    private void Instance_OnAutoclickerUpgrade()
+    {
+        autoclickerUpgradeCostText.text = UpgradeManager.Instance.AutoclickerUpgradeCost.ToString();
+    }
+
+    private void Instance_OnAutoclickerUnlock()
+    {
+        autoClickerUpgradeBtn.interactable = true;
+        autoclickerUpgradeCostText.text = UpgradeManager.Instance.AutoclickerUpgradeCost.ToString();
     }
 
     private void ClickHendler_OnClick()

@@ -14,8 +14,8 @@ public class UpgradeManager : MonoBehaviour
     private int chanceDropUpgradeCost = 10;
     private int countCoinForDropUpgradeCost = 10;
     private int jackpotUpgradeCost = 10;
-    private int autoclickerUnlockCost = 1000;
-    private int autoclickerUpgradeCost = 10000;
+    private int autoclickerUnlockCost = 10;
+    private int autoclickerUpgradeCost = 10;
 
     public int ClickUpgradeCost { get { return clickUpgradeCost; } }
     public int ChanceCoinDropUpgradeCost { get { return chanceDropUpgradeCost; } }
