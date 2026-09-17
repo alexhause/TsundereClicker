@@ -311,6 +311,7 @@ MonoBehaviour:
   countCoinForDropUgradeCostText: {fileID: 237965491}
   jackpotUpgradeCostText: {fileID: 1732110151}
   autoclickerUpgradeCostText: {fileID: 656673410}
+  autoClickerUpgradeBtn: {fileID: 1367247162}
   jackpotAmountText: {fileID: 218710485}
   targetScoreTxt: {fileID: 1091239349}
   coinChanceUpgradeBtn: {fileID: 201094671}
@@ -2690,7 +2691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   levelManager: {fileID: 2045400575}
   autoClickerEnable: 0
-  autoclickInterval: 1
+  autoclickInterval: 2
 --- !u!1 &850880046
 GameObject:
   m_ObjectHideFlags: 0
@@ -3868,14 +3869,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1367247163}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1854912356}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: BuyAutoclikerUnlock
+        m_MethodName: BuyAutoclikerUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4307,7 +4308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.091847636, g: 0.1349528, b: 0.1509434, a: 0.33333334}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4463,6 +4464,7 @@ GameObject:
   - component: {fileID: 1882081469}
   - component: {fileID: 1882081472}
   - component: {fileID: 1882081471}
+  - component: {fileID: 1882081473}
   m_Layer: 0
   m_Name: AutoclikerUnlockIcon
   m_TagString: Untagged
@@ -4517,7 +4519,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 358
+  m_SortingOrder: 32767
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1336561255, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4538,7 +4540,7 @@ Transform:
   m_GameObject: {fileID: 1882081468}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.782, y: -2.926, z: 0}
+  m_LocalPosition: {x: -9.84, y: -2.91, z: 0}
   m_LocalScale: {x: 0.3092973, y: 0.30101848, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4602,7 +4604,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d82c57092299f9498e28e73c27b44dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoclikerUnlockSprite
-  unlocSprite: {fileID: 1064545691, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
+  unlockSprite: {fileID: 1064545691, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
+  lockSprite: {fileID: 1336561255, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
+  upgradeManager: {fileID: 1854912356}
+--- !u!114 &1882081473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882081468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1854912356}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: BuyAutoclikerUnlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1884184727
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,6 +33,7 @@ public class UIHandler : MonoBehaviour
     {
         clickHendler.OnClick += ClickHendler_OnClick;
         clickHendler.OnTotalClickChange += ClickHendler_OnTotalClickChange;
+        clickHendler.OnAutoclikerMax += ClickHendler_OnAutoclikerMax;
 
         CoinManager.Instance.OnCoinDrop += CoinManager_OnCoinDrop;
         CoinManager.Instance.OnCoinChange += CoinManager_OnCoinChange;
@@ -67,6 +68,7 @@ public class UIHandler : MonoBehaviour
     {
         clickHendler.OnClick -= ClickHendler_OnClick;
         clickHendler.OnTotalClickChange -= ClickHendler_OnTotalClickChange;
+        clickHendler.OnAutoclikerMax -= ClickHendler_OnAutoclikerMax;
 
         CoinManager.Instance.OnCoinDrop -= CoinManager_OnCoinDrop;
         CoinManager.Instance.OnCoinChange -= CoinManager_OnCoinChange;
@@ -152,6 +154,13 @@ public class UIHandler : MonoBehaviour
     {
         pointCountText.text = clickHendler.TotalClick.ToString();
     }
+
+    private void ClickHendler_OnAutoclikerMax()
+    {
+        autoClickerUpgradeBtn.interactable = false;
+        autoclickerUpgradeCostText.text = "MAX";
+    }
+
 
     private void LevelManager_OnStageChanged(StageData newStage)
     {

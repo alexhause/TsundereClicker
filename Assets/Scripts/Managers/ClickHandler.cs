@@ -7,7 +7,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
 {
     public event Action OnTotalClickChange;
     public event Action OnClick;
-
+    public event Action OnAutoclikerMax;
     public event Action<int> OnClickAdded;
 
     public int TotalClick { get { return totalClick; } }
@@ -15,7 +15,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private bool autoClickerEnable;
-    [SerializeField] private float autoclickInterval = 1f;
+    [SerializeField, Range(1,20)] private int autoclickInterval = 20;
 
     private int clickPower = 1;
     private int totalClick = 0;
@@ -40,9 +40,9 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
         if (autoClickerEnable)
         {
             timer += Time.deltaTime;
-            if (timer >= autoclickInterval)
+            if (timer >= (float)autoclickInterval/10)
             {
-                timer -= autoclickInterval; // так меньше накапливается погрешность
+                timer -= (float)autoclickInterval/10; // так меньше накапливается погрешность
                 Click();
             }
         }
@@ -70,14 +70,15 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
 
     private void Instance_OnAutoclickerUpgrade()
     {
-        if(autoclickInterval > 0f)
+        if(autoclickInterval == 2)
         {
-            autoclickInterval -= 0.1f;
+            autoclickInterval = 1;
+            OnAutoclikerMax?.Invoke();
         }
 
         else
         {
-            Debug.LogWarning("Autoclick == 0 !");
+            autoclickInterval -= 1;
         }
     }
 
