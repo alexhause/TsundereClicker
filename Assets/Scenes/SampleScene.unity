@@ -303,18 +303,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIHandler
   pointCountText: {fileID: 372647730}
-  currentCoinCountText: {fileID: 988393953}
-  chanceCoinDropText: {fileID: 850880048}
-  countCoinForDropText: {fileID: 978523923}
-  clickUpgradeCostText: {fileID: 249614922}
-  chanceCoinDropUpgradeCost: {fileID: 265990471}
-  countCoinForDropUgradeCostText: {fileID: 237965491}
-  jackpotUpgradeCostText: {fileID: 1732110151}
+  targetScoreTxt: {fileID: 1091239349}
   autoclickerUpgradeCostText: {fileID: 656673410}
   autoClickerUpgradeBtn: {fileID: 1367247162}
-  jackpotAmountText: {fileID: 218710485}
-  targetScoreTxt: {fileID: 1091239349}
-  coinChanceUpgradeBtn: {fileID: 201094671}
   clickHendler: {fileID: 835154518}
   levelManager: {fileID: 2045400575}
 --- !u!223 &20937913
@@ -2691,7 +2682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   levelManager: {fileID: 2045400575}
   autoClickerEnable: 0
-  autoclickInterval: 2
+  autoclickInterval: 3
 --- !u!1 &850880046
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,6 +3926,7 @@ GameObject:
   - component: {fileID: 1576894971}
   - component: {fileID: 1576894973}
   - component: {fileID: 1576894972}
+  - component: {fileID: 1576894974}
   m_Layer: 5
   m_Name: CoinPanel
   m_TagString: Untagged
@@ -4005,6 +3997,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576894970}
   m_CullTransparentMesh: 1
+--- !u!114 &1576894974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576894970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9566de780f97b8448b950d6e7088018b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinUIManager
+  currentCoinCountText: {fileID: 988393953}
+  chanceCoinDropText: {fileID: 850880048}
+  countCoinForDropText: {fileID: 978523923}
+  jackpotAmountText: {fileID: 218710485}
+  chanceCoinDropUpgradeCostText: {fileID: 265990471}
+  coinChanceUpgradeBtn: {fileID: 201094671}
 --- !u!1 &1728008022
 GameObject:
   m_ObjectHideFlags: 0
@@ -4258,6 +4268,7 @@ GameObject:
   - component: {fileID: 1748869878}
   - component: {fileID: 1748869880}
   - component: {fileID: 1748869879}
+  - component: {fileID: 1748869881}
   m_Layer: 5
   m_Name: UpgradePanel
   m_TagString: Untagged
@@ -4332,6 +4343,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748869877}
   m_CullTransparentMesh: 1
+--- !u!114 &1748869881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748869877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7fc6732c8f5b543a5f9d5f3acba82e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIUpgradeManager
+  clickUpgradeCostText: {fileID: 249614922}
+  chanceCoinDropUpgradeCost: {fileID: 265990471}
+  countCoinForDropUgradeCostText: {fileID: 237965491}
+  jackpotUpgradeCostText: {fileID: 1732110151}
+  autoclickerUpgradeCostText: {fileID: 656673410}
+  autoClickerUpgradeBtn: {fileID: 1367247162}
 --- !u!1 &1793002469
 GameObject:
   m_ObjectHideFlags: 0
@@ -5105,7 +5134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc775c983a505774c8b7241e874a4554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinManager
-  jackpotAmount: 5
+  jackpotAmount: 10
   countCoinForDrop: 1
   coinDropChance: 5
   clickHendler: {fileID: 835154518}
