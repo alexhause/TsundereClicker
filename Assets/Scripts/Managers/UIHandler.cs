@@ -19,9 +19,7 @@ public class UIHandler : MonoBehaviour
     {
         clickHendler.OnClick += ClickHendler_OnClick;
         clickHendler.OnTotalClickChange += ClickHendler_OnTotalClickChange;
-        clickHendler.OnAutoclikerMax += ClickHendler_OnAutoclikerMax;
-
-
+        
         levelManager.OnStageChanged += LevelManager_OnStageChanged;
         levelManager.OnNewLevelStart += LevelManager_OnNewLevelStart;
         
@@ -32,7 +30,7 @@ public class UIHandler : MonoBehaviour
     {
         clickHendler.OnClick -= ClickHendler_OnClick;
         clickHendler.OnTotalClickChange -= ClickHendler_OnTotalClickChange;
-        clickHendler.OnAutoclikerMax -= ClickHendler_OnAutoclikerMax;
+        
 
 
         levelManager.OnStageChanged -= LevelManager_OnStageChanged;
@@ -47,12 +45,6 @@ public class UIHandler : MonoBehaviour
     private void ClickHendler_OnTotalClickChange()
     {
         pointCountText.text = clickHendler.TotalClick.ToString();
-    }
-
-    private void ClickHendler_OnAutoclikerMax()
-    {
-        autoClickerUpgradeBtn.enabled = false;
-        autoclickerUpgradeCostText.text = "MAX";
     }
 
     private void LevelManager_OnStageChanged(StageData newStage)

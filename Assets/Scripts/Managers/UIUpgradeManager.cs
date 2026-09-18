@@ -11,9 +11,11 @@ public class UIUpgradeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI jackpotUpgradeCostText;
     [SerializeField] private TextMeshProUGUI autoclickerUpgradeCostText;
     [SerializeField] private Button autoClickerUpgradeBtn;
+    [SerializeField] private ClickHandler clickHandler;
 
     private void Start()
     {
+        clickHandler.OnAutoclikerMax += ClickHendler_OnAutoclikerMax;
         UpgradeManager.Instance.OnClickUpgrade += UpgradeManager_OnClickUpgrade;
         UpgradeManager.Instance.OnChanceCoinDropUpgrade += UpgradeManager_OnChanceCoinDropUpgrade;
         UpgradeManager.Instance.OnCoutCoinForDropUpgrade += UpgradeManager_OnCoutCoinForDropUpgrade;
@@ -36,11 +38,20 @@ public class UIUpgradeManager : MonoBehaviour
         UpgradeManager.Instance.OnJackpotUpgrade += UpgradeManager_OnJackpotUpgrade;
         UpgradeManager.Instance.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
         UpgradeManager.Instance.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
+
+        clickHandler.OnAutoclikerMax -= ClickHendler_OnAutoclikerMax;
     }
 
     private void Instance_OnAutoclickerUpgrade()
     {
+        if(!clickHandler.IsAutoclickMax)
         autoclickerUpgradeCostText.text = UpgradeManager.Instance.AutoclickerUpgradeCost.ToString();
+    }
+
+    private void ClickHendler_OnAutoclikerMax()
+    {
+        autoClickerUpgradeBtn.enabled = false;
+        autoclickerUpgradeCostText.text = "MAX";
     }
 
     private void Instance_OnAutoclickerUnlock()

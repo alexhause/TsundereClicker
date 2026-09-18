@@ -12,6 +12,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
 
     public int TotalClick { get { return totalClick; } }
     public int ClickPower { get { return clickPower; } }
+    public bool IsAutoclickMax { get; private set; }
 
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private bool autoClickerEnable;
@@ -29,6 +30,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        IsAutoclickMax = false;
         UpgradeManager.Instance.OnClickUpgrade += UpgradeManager_OnUpgrade;
         UpgradeManager.Instance.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
         UpgradeManager.Instance.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
@@ -72,6 +74,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     {
         if(autoclickInterval == 2)
         {
+            IsAutoclickMax = true;
             autoclickInterval = 1;
             OnAutoclikerMax?.Invoke();
         }
