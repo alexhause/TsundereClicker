@@ -1861,27 +1861,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 432279272}
-  - component: {fileID: 432279271}
+  - component: {fileID: 432279273}
   m_Layer: 0
-  m_Name: AudioManger
+  m_Name: GameplayAudioManger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &432279271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432279270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab736fd38dd75374dbfc28033838a5cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  clickHandler: {fileID: 835154518}
 --- !u!4 &432279272
 Transform:
   m_ObjectHideFlags: 0
@@ -1897,6 +1884,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &432279273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432279270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ad5f78e53bfe14f97e55e8a9d1bbd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameplayAudio
+  clickSFX: {fileID: 8300000, guid: 7fb8dc3f8f94a8a4f915e071d6513304, type: 3}
+  upgradeSFX: {fileID: 8300000, guid: 9777354f9d19f5c47a4f83d7dab5403a, type: 3}
+  coinDropSFX: {fileID: 8300000, guid: c0465858ab67ed64f898ab8dd420b2cc, type: 3}
+  orgasmSFX: {fileID: 8300000, guid: f674864ec5a17134681255041df0e18e, type: 3}
+  music: {fileID: 8300000, guid: b8ce808008afb29428d70197064a84f2, type: 3}
+  clickHandler: {fileID: 835154518}
+  upgradeManager: {fileID: 1854912356}
+  progressBarManager: {fileID: 251461763}
 --- !u!1 &458931275 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4456623962844418225, guid: ddddfac19f0165a43ba210d4380d1dbf, type: 3}

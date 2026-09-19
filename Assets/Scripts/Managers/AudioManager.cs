@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private ClickHandler clickHandler;
-    [SerializeField] private AudioClip clickSound;
-    [SerializeField] private AudioSource audioSource;
-    public static AudioManager Instance;
+    public static AudioManager Instance { get; private set; }
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource musicSource;
 
+    #region Singleton
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -18,14 +18,16 @@ public class AudioManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    #endregion
 
-    private void Start()
+    public void PlaySFX(AudioClip sfx)
     {
-        clickHandler.OnClick += ClickHandler_OnClick;
+        sfxSource.PlayOneShot(sfx);
     }
 
-    private void ClickHandler_OnClick()
+    public void PlayMusic(AudioClip music)
     {
-        audioSource.PlayOneShot(clickSound);
+        musicSource.clip = music;
+        musicSource.Play();
     }
 }
