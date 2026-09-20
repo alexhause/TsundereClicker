@@ -7,22 +7,34 @@ public class UpgradeManager : MonoBehaviour
     public event Action OnChanceCoinDropUpgrade;
     public event Action OnCoutCoinForDropUpgrade;
     public event Action OnJackpotUpgrade;
+    public event Action OnJackpotFillSpeedUpgrade;
     public event Action OnAutoclickerUnlock;
     public event Action OnAutoclickerUpgrade;
+    public event Action OnNoCoinForUpgrade;
 
-    private int clickUpgradeCost = 10;
-    private int chanceDropUpgradeCost = 10;
-    private int countCoinForDropUpgradeCost = 10;
-    private int jackpotUpgradeCost = 10;
-    private int autoclickerUnlockCost = 10;
-    private int autoclickerUpgradeCost = 10;
+   [SerializeField] private int clickUpgradeCost = 10;
+   [SerializeField] private int chanceDropUpgradeCost = 10;
+   [SerializeField] private int countCoinForDropUpgradeCost = 10;
+   [SerializeField] private int jackpotUpgradeCost = 10;
+   [SerializeField] private int _jackpotFillSpeedUpgradeCost = 10;
+   [SerializeField] private int autoclickerUnlockCost = 10;
+   [SerializeField] private int autoclickerUpgradeCost = 10;
+
+    [SerializeField] private float clickUpgradeCostFactor = 1.5f;
+    [SerializeField] private float chanceDropUpgradeCostFactor = 1.5f;
+    [SerializeField] private float countCoinForDropUpgradeCostFactor = 1.5f;
+    [SerializeField] private float jackpotUpgradeCostFactor = 1.5f;
+    [SerializeField] private float _jackpotFillSpeedUpgradeCostFactor = 1.5f;
+    [SerializeField] private float autoclickerUpgradeCostFactor = 1.5f;
 
     public int ClickUpgradeCost { get { return clickUpgradeCost; } }
     public int ChanceCoinDropUpgradeCost { get { return chanceDropUpgradeCost; } }
     public int CountCoinForDroupgradeCost { get { return countCoinForDropUpgradeCost; } }
     public int JackpotUpgradeCost {  get { return jackpotUpgradeCost; } }
+    public int JackpotFillSpeedUpgradeCost { get { return _jackpotFillSpeedUpgradeCost; } }
     public int AutoclickerUnlockCost { get { return autoclickerUnlockCost; }  }
     public int AutoclickerUpgradeCost { get { return autoclickerUpgradeCost; } }
+
 
     public static UpgradeManager Instance { get; private set; }
 
@@ -40,14 +52,14 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyClickUpgrade()
     {
-        if(CoinManager.Instance.TrySpendCoin(clickUpgradeCost))
+        if(CoinManager.Instance.TrySpendCoin((int)clickUpgradeCost))
         {
-            clickUpgradeCost *= 2;
+            clickUpgradeCost = CalculateNewPrice(clickUpgradeCost, clickUpgradeCostFactor);
             OnClickUpgrade?.Invoke();
         }
         else
         {
-            Debug.Log("NO COIN!");
+            OnNoCoinForUpgrade?.Invoke();
         }
     }
 
@@ -55,12 +67,12 @@ public class UpgradeManager : MonoBehaviour
     {
         if (CoinManager.Instance.TrySpendCoin(chanceDropUpgradeCost))
         {
-            chanceDropUpgradeCost *= 2;
+            chanceDropUpgradeCost = CalculateNewPrice(chanceDropUpgradeCost, chanceDropUpgradeCostFactor);
             OnChanceCoinDropUpgrade?.Invoke();
         }
         else
         {
-            Debug.Log("NO COIN!");
+            OnNoCoinForUpgrade?.Invoke();
         }
     }
 
@@ -68,12 +80,12 @@ public class UpgradeManager : MonoBehaviour
     {
         if (CoinManager.Instance.TrySpendCoin(countCoinForDropUpgradeCost))
         {
-            countCoinForDropUpgradeCost *= 2;
+            countCoinForDropUpgradeCost = CalculateNewPrice(countCoinForDropUpgradeCost, countCoinForDropUpgradeCostFactor);
             OnCoutCoinForDropUpgrade?.Invoke();
         }
         else
         {
-            Debug.Log("NO COIN!");
+            OnNoCoinForUpgrade?.Invoke();
         }
     }
 
@@ -81,12 +93,25 @@ public class UpgradeManager : MonoBehaviour
     {
         if (CoinManager.Instance.TrySpendCoin(jackpotUpgradeCost))
         {
-            jackpotUpgradeCost *= 2;
+            jackpotUpgradeCost = CalculateNewPrice(jackpotUpgradeCost, jackpotUpgradeCostFactor);
             OnJackpotUpgrade?.Invoke();
         }
         else
         {
-            Debug.Log("NO COIN!");
+            OnNoCoinForUpgrade?.Invoke();
+        }
+    }
+
+    public void BuyJackpotFillSpeedUpgrade()
+    {
+        if (CoinManager.Instance.TrySpendCoin(_jackpotFillSpeedUpgradeCost))
+        {
+            _jackpotFillSpeedUpgradeCost = CalculateNewPrice(_jackpotFillSpeedUpgradeCost, _jackpotFillSpeedUpgradeCostFactor);
+            OnJackpotFillSpeedUpgrade?.Invoke();
+        }
+        else
+        {
+            OnNoCoinForUpgrade?.Invoke();
         }
     }
 
@@ -98,7 +123,7 @@ public class UpgradeManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("NO COIN!");
+            OnNoCoinForUpgrade?.Invoke();
         }
     }
 
@@ -106,12 +131,17 @@ public class UpgradeManager : MonoBehaviour
     {
         if (CoinManager.Instance.TrySpendCoin(autoclickerUpgradeCost))
         {
-            autoclickerUpgradeCost *= 2;
+            autoclickerUpgradeCost = CalculateNewPrice(autoclickerUpgradeCost, autoclickerUpgradeCostFactor);
             OnAutoclickerUpgrade?.Invoke();
         }
         else
         {
-            Debug.Log("NO COIN!");
+            OnNoCoinForUpgrade?.Invoke();
         }
+    }
+
+    private int CalculateNewPrice(int currentPrice, float factor)
+    {
+        return (int)(currentPrice * factor);
     }
 }

@@ -6,7 +6,7 @@ public class ProgressBarManager : MonoBehaviour
 {
     public event Action OnBarFilled;
 
-    [SerializeField, Range(0, 1f)] private float barfillPercentage;
+    [SerializeField, Range(0, 0.01f)] private float barfillPercentage;
 
     [SerializeField] private ClickHandler clickHendler;
     [SerializeField] private Image progressBarFillImage;
@@ -17,40 +17,29 @@ public class ProgressBarManager : MonoBehaviour
        progressBarFillImage.fillAmount = 0;
 
        clickHendler.OnClick += ClickHendler_OnClick;
-        UpgradeManager.Instance.OnJackpotUpgrade += UpgradeManager_OnJackpotUpgrade;
+        UpgradeManager.Instance.OnJackpotFillSpeedUpgrade += Instance_OnJackpotFillSpeedUpgrade;
     }
-
     private void OnDestroy()
     {
         clickHendler.OnClick -= ClickHendler_OnClick;
-        UpgradeManager.Instance.OnJackpotUpgrade -= UpgradeManager_OnJackpotUpgrade;
-
+        UpgradeManager.Instance.OnJackpotUpgrade -= Instance_OnJackpotFillSpeedUpgrade;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ClickHendler_OnClick()
     {
-        if (progressBarFillImage.fillAmount > 0)
-        {
-            progressBarFillImage.fillAmount -= 0.1f * Time.deltaTime;
-        }
-        if(progressBarFillImage.fillAmount >= 0.99f)
+        progressBarFillImage.fillAmount += barfillPercentage;
+        if (progressBarFillImage.fillAmount >= 0.99f)
         {
             OnBarFilled?.Invoke();
             progressBarFillImage.fillAmount = 0;
         }
     }
 
-    private void ClickHendler_OnClick()
+    private void Instance_OnJackpotFillSpeedUpgrade()
     {
-        progressBarFillImage.fillAmount += barfillPercentage;
-    }
-
-    private void UpgradeManager_OnJackpotUpgrade()
-    {
-        if(barfillPercentage > 0.02f)
+        if(barfillPercentage < 0.01f)
         {
-            barfillPercentage -= 0.001f;
+            barfillPercentage += 0.001f;
         }
     }
 }

@@ -18,7 +18,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     [SerializeField] private bool autoClickerEnable;
     [SerializeField, Range(1,20)] private int autoclickInterval = 20;
 
-    private int clickPower = 1;
+    [SerializeField] private int clickPower = 1;
     private int totalClick = 0;
     private float timer;
 

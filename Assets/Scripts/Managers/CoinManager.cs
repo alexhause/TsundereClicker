@@ -16,6 +16,7 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private int jackpotAmount = 1; //размер выплаты джекпота
     [SerializeField] private int countCoinForDrop = 0; //сколько монет дают за один дроп
     [SerializeField, Range(2, 100)] private int coinDropChance = 5; //вероятсность дропа
+    [SerializeField] private float jackpotAmountUppgradeFactor = 2.5f;
 
     [SerializeField] ClickHandler clickHendler;
     [SerializeField] ProgressBarManager progressBarManager;
@@ -61,7 +62,8 @@ public class CoinManager : MonoBehaviour
 
     private void UpgradeManager_OnJackpotUpgrade()
     {
-        jackpotAmount += 5;
+        float newJackpotAmount = jackpotAmount * jackpotAmountUppgradeFactor;
+        jackpotAmount = (int)newJackpotAmount;
         OnJackpotAmountChange?.Invoke();
     }
 
