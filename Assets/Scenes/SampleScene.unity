@@ -4517,6 +4517,7 @@ GameObject:
   - component: {fileID: 1367247164}
   - component: {fileID: 1367247163}
   - component: {fileID: 1367247162}
+  - component: {fileID: 1367247165}
   m_Layer: 5
   m_Name: AutoclickerUpgradeBtn
   m_TagString: Untagged
@@ -4638,6 +4639,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367247160}
   m_CullTransparentMesh: 1
+--- !u!114 &1367247165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367247160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98eaf882a4b55d45a9601deaad7c260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
+  tooltipText: "\u0410\u0432\u0442\u043E\u043A\u043B\u0438\u043A\u0435\u0440 \u0431\u0443\u0434\u0435\u0442
+    \u043A\u043B\u0438\u043A\u0430\u0442\u044C \u0447\u0430\u0449\u0435"
 --- !u!1 &1576894970
 GameObject:
   m_ObjectHideFlags: 0
@@ -5306,6 +5321,7 @@ GameObject:
   - component: {fileID: 1793002470}
   - component: {fileID: 1793002472}
   - component: {fileID: 1793002471}
+  - component: {fileID: 1793002473}
   m_Layer: 5
   m_Name: background
   m_TagString: Untagged
@@ -5371,6 +5387,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793002469}
   m_CullTransparentMesh: 1
+--- !u!114 &1793002473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793002469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23bce60caa98f9a45aa41d463a9bb639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeartAnimation
+  clickHandler: {fileID: 835154518}
+  targetScale: 1.15
+  squeezeDuration: 0.05
+  returnDuration: 0.2
+  squeezeEase: 6
+  returnEase: 24
 --- !u!1 &1854912355
 GameObject:
   m_ObjectHideFlags: 0
