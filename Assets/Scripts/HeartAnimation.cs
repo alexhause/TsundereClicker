@@ -28,6 +28,11 @@ public class HeartAnimation : MonoBehaviour
         clickHandler.OnClick += PlayAnimation;
     }
 
+    private void OnDestroy()
+    {
+        clickHandler.OnClick -= PlayAnimation;
+    }
+
     private void PlayAnimation()
     {
         // Сбрасываем масштаб и убиваем прошлый твин, чтобы быстрые клики не ломали логику

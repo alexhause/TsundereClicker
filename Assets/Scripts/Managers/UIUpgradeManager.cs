@@ -61,6 +61,7 @@ public class UIUpgradeManager : MonoBehaviour
 
     private void Instance_OnAutoclickerUnlock()
     {
+        autoClickerUpgradeBtn.image.raycastTarget = true;
         autoClickerUpgradeBtn.interactable = true;
         autoclickerUpgradeCostText.text = UpgradeManager.Instance.AutoclickerUpgradeCost.ToString();
     }

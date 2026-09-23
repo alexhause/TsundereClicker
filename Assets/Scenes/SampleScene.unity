@@ -2173,6 +2173,7 @@ MonoBehaviour:
   orgasmSFX: {fileID: 8300000, guid: f674864ec5a17134681255041df0e18e, type: 3}
   music: {fileID: 8300000, guid: b8ce808008afb29428d70197064a84f2, type: 3}
   _noCoinSFX: {fileID: 8300000, guid: 590d9e1341cf8a94392af1d3cd07d9d1, type: 3}
+  _autoclicekrUnlocSFX: {fileID: 8300000, guid: 7ca2266d32cc2e74b9151a7770b32560, type: 3}
   clickHandler: {fileID: 835154518}
   progressBarManager: {fileID: 251461763}
 --- !u!1 &458931275 stripped
@@ -4615,7 +4616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5400,9 +5401,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeartAnimation
   clickHandler: {fileID: 835154518}
-  targetScale: 1.15
-  squeezeDuration: 0.05
-  returnDuration: 0.2
+  targetScale: 1.03
+  squeezeDuration: 0.1
+  returnDuration: 0.3
   squeezeEase: 6
   returnEase: 24
 --- !u!1 &1854912355
@@ -6015,7 +6016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
