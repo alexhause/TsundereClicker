@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class AutoclikerUnlockSprite : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -24,8 +25,9 @@ public class AutoclikerUnlockSprite : MonoBehaviour, IPointerEnterHandler, IPoin
 
     private void UpgradeManager_OnAutoclickerUnlock()
     {
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         spriteRenderer.sprite = null;
-        this.enabled = false;
+        this.enabled = false;    
     }
 
     public void OnPointerEnter(PointerEventData eventData)
