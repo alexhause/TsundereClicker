@@ -13,6 +13,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     public int TotalClick { get { return totalClick; } }
     public int ClickPower { get { return clickPower; } }
     public bool IsAutoclickMax { get; private set; }
+    public bool AutoClickerEnable { get { return autoClickerEnable; } }
 
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private bool autoClickerEnable;

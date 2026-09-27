@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     public event Action<StageData> OnStageChanged;
     public event Action<LevelData> OnNewLevelStart;
     public int StageTargetScore {  get; private set; }
+    public int CurrentLevel { get {  return currentLevel; }  }
+    public int CurrentStage {  get { return currentStage; } }
 
     [SerializeField] private LevelData[] levels;
     [SerializeField] private ClickHandler clickHendler;

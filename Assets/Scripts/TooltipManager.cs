@@ -39,10 +39,9 @@ public class TooltipManager : MonoBehaviour
 
     private void Update()
     {
-        // ОПТИМИЗАЦИЯ: Если тултип сейчас скрыт, нет смысла тратить ресурсы на подсчет позиции мыши
-        if (tooltip == null || !tooltip.gameObject.activeSelf) return;
-
         Vector2 mousePos = Mouse.current.position.ReadValue();
+        // ОПТИМИЗАЦИЯ: Если тултип сейчас скрыт, нет смысла тратить ресурсы на подсчет позиции мыши
+        //if (tooltip == null || !tooltip.gameObject.activeSelf) return;    
 
         // ИСПРАВЛЕНО: Берём родителя самого ТУЛТИПА, а не менеджера
         RectTransform parentRect = tooltip.parent as RectTransform;
