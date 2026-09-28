@@ -38,21 +38,6 @@ public class UpgradeManager : MonoBehaviour
     public int AutoclickerUnlockCost { get { return autoclickerUnlockCost; }  }
     public int AutoclickerUpgradeCost { get { return autoclickerUpgradeCost; } }
 
-
-    public static UpgradeManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
     public void BuyClickUpgrade()
     {
         if(coinManager.TrySpendCoin((int)clickUpgradeCost))

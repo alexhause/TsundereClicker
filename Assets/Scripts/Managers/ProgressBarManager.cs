@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class ProgressBarManager : MonoBehaviour
 
     [SerializeField] private ClickHandler clickHendler;
     [SerializeField] private Image progressBarFillImage;
+
+    [SerializeField] private UpgradeManager upgradeManager;
     
 
     void Start()
@@ -17,12 +20,12 @@ public class ProgressBarManager : MonoBehaviour
        progressBarFillImage.fillAmount = 0;
 
        clickHendler.OnClick += ClickHendler_OnClick;
-        UpgradeManager.Instance.OnJackpotFillSpeedUpgrade += Instance_OnJackpotFillSpeedUpgrade;
+        upgradeManager.OnJackpotFillSpeedUpgrade += Instance_OnJackpotFillSpeedUpgrade;
     }
     private void OnDestroy()
     {
         clickHendler.OnClick -= ClickHendler_OnClick;
-        UpgradeManager.Instance.OnJackpotUpgrade -= Instance_OnJackpotFillSpeedUpgrade;
+        upgradeManager.OnJackpotUpgrade -= Instance_OnJackpotFillSpeedUpgrade;
     }
 
     private void ClickHendler_OnClick()

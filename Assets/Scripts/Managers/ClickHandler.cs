@@ -17,6 +17,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private GameplayManager gameplayManager;
+    [SerializeField] private UpgradeManager upgradeManager;
     [SerializeField] private bool autoClickerEnable;
     [SerializeField, Range(1,20)] private int autoclickInterval = 20;
 
@@ -38,9 +39,9 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         IsAutoclickMax = false;
-        UpgradeManager.Instance.OnClickUpgrade += UpgradeManager_OnUpgrade;
-        UpgradeManager.Instance.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
-        UpgradeManager.Instance.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
+        upgradeManager.OnClickUpgrade += UpgradeManager_OnUpgrade;
+        upgradeManager.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
+        upgradeManager.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
         levelManager.OnStageComplete += LevelManager_OnStageComplete;
     }
 
@@ -59,9 +60,9 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
 
     private void OnDestroy()
     {
-        UpgradeManager.Instance.OnClickUpgrade -= UpgradeManager_OnUpgrade;
-        UpgradeManager.Instance.OnAutoclickerUnlock -= Instance_OnAutoclickerUnlock;
-        UpgradeManager.Instance.OnAutoclickerUpgrade -= Instance_OnAutoclickerUpgrade;
+        upgradeManager.OnClickUpgrade -= UpgradeManager_OnUpgrade;
+        upgradeManager.OnAutoclickerUnlock -= Instance_OnAutoclickerUnlock;
+        upgradeManager.OnAutoclickerUpgrade -= Instance_OnAutoclickerUpgrade;
         gameplayManager.OnGameLoad -= GameplayManager_OnGameLoad;
         levelManager.OnStageComplete -= LevelManager_OnStageComplete;
     }

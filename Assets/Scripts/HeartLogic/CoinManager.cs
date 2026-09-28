@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CoinManager : MonoBehaviour
@@ -18,9 +19,10 @@ public class CoinManager : MonoBehaviour
     [SerializeField, Range(2, 100)] private int coinDropChance = 5; //вероятсность дропа
     [SerializeField] private float jackpotAmountUppgradeFactor = 2.5f;
 
-    [SerializeField] ClickHandler clickHendler;
-    [SerializeField] GameplayManager gameplayManager;
+    [SerializeField] private ClickHandler clickHendler;
+    [SerializeField] private GameplayManager gameplayManager;
     [SerializeField] ProgressBarManager progressBarManager;
+    [SerializeField] private UpgradeManager upgradeManager;
 
     public int CurrentCoinCount { get { return currentHeartCount; }  }
     public int CoinDropChance { get { return coinDropChance; } }
@@ -29,15 +31,15 @@ public class CoinManager : MonoBehaviour
 
     private void Awake()
     {
-        UpgradeManager.Instance.OnJackpotUpgrade += UpgradeManager_OnJackpotUpgrade;
+        upgradeManager.OnJackpotUpgrade += UpgradeManager_OnJackpotUpgrade;
     }
 
     private void Start()
     {
         clickHendler.OnClick += ClickHendler_OnClick;
         gameplayManager.OnGameLoad += GameplayManager_OnGameLoad;
-        UpgradeManager.Instance.OnChanceCoinDropUpgrade += UpgradeManager_OnChanceCoinDropUpgrade;
-        UpgradeManager.Instance.OnCoutCoinForDropUpgrade += UpgradeManager_OnCoutCoinForDropUpgrade;
+        upgradeManager.OnChanceCoinDropUpgrade += UpgradeManager_OnChanceCoinDropUpgrade;
+        upgradeManager.OnCoutCoinForDropUpgrade += UpgradeManager_OnCoutCoinForDropUpgrade;
         
         progressBarManager.OnBarFilled += ProgressBarManager_OnBarFilled;
     }
@@ -45,9 +47,9 @@ public class CoinManager : MonoBehaviour
     private void OnDestroy()
     {
         clickHendler.OnClick -= ClickHendler_OnClick;
-        UpgradeManager.Instance.OnChanceCoinDropUpgrade -= UpgradeManager_OnChanceCoinDropUpgrade;
-        UpgradeManager.Instance.OnCoutCoinForDropUpgrade -= UpgradeManager_OnCoutCoinForDropUpgrade;
-        UpgradeManager.Instance.OnJackpotUpgrade -= UpgradeManager_OnJackpotUpgrade;
+        upgradeManager.OnChanceCoinDropUpgrade -= UpgradeManager_OnChanceCoinDropUpgrade;
+        upgradeManager.OnCoutCoinForDropUpgrade -= UpgradeManager_OnCoutCoinForDropUpgrade;
+        upgradeManager.OnJackpotUpgrade -= UpgradeManager_OnJackpotUpgrade;
         progressBarManager.OnBarFilled -= ProgressBarManager_OnBarFilled;
         gameplayManager.OnGameLoad -= GameplayManager_OnGameLoad;
     }

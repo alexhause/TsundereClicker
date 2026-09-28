@@ -7,6 +7,8 @@ public class AutoclikerLockAnimation : MonoBehaviour
     [SerializeField] private float duration = 1.0f;     // Время одного цикла покачивания
     [SerializeField] private float jumpPower = 15.0f;    // Высота покачивания 
 
+    [SerializeField] private UpgradeManager upgradeManager;
+
     private Vector3 startPosition;
 
     private void Awake()
@@ -16,12 +18,12 @@ public class AutoclikerLockAnimation : MonoBehaviour
 
     private void Start()
     {
-        UpgradeManager.Instance.OnNoCoinForUnlock += Instance_OnNoCoinForUnlock;
+        upgradeManager.OnNoCoinForUnlock += Instance_OnNoCoinForUnlock;
     }
 
     private void OnDestroy()
     {
-        UpgradeManager.Instance.OnNoCoinForUnlock -= Instance_OnNoCoinForUnlock;
+        upgradeManager.OnNoCoinForUnlock -= Instance_OnNoCoinForUnlock;
     }
 
 

@@ -6,6 +6,8 @@ public class NoCoinTextAnimation : MonoBehaviour
 {
     [SerializeField] private TMP_Text _coinCountText;
 
+    [SerializeField] private UpgradeManager upgradeManager;
+
     private Color _defaultColor;
     private void Awake()
     {
@@ -14,7 +16,7 @@ public class NoCoinTextAnimation : MonoBehaviour
 
     private void Start()
     {
-        UpgradeManager.Instance.OnNoCoinForUpgrade += PlayAnimation;
+        upgradeManager.OnNoCoinForUpgrade += PlayAnimation;
     }
 
     private void PlayAnimation()

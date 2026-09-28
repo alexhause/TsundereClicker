@@ -14,20 +14,20 @@ public class GameplayAudio : MonoBehaviour
     [SerializeField] private ClickHandler clickHandler;
     [SerializeField] private ProgressBarManager progressBarManager;
     [SerializeField] private CoinManager coinManager;
-
+    [SerializeField] private UpgradeManager upgradeManager;
 
     private void Start()
     {
         AudioManager.Instance.PlayMusic(music);
         clickHandler.OnClick += ClickSFXPlay;
-        UpgradeManager.Instance.OnAutoclickerUpgrade += UpgradeSFXPlay;
-        UpgradeManager.Instance.OnChanceCoinDropUpgrade += UpgradeSFXPlay;
-        UpgradeManager.Instance.OnClickUpgrade += UpgradeSFXPlay;
-        UpgradeManager.Instance.OnCoutCoinForDropUpgrade += UpgradeSFXPlay;
-        UpgradeManager.Instance.OnJackpotUpgrade += UpgradeSFXPlay;
-        UpgradeManager.Instance.OnJackpotFillSpeedUpgrade += UpgradeSFXPlay;
-        UpgradeManager.Instance.OnNoCoinForUpgrade += NoCoinSFXPlay;
-        UpgradeManager.Instance.OnAutoclickerUnlock += AutoclickerUnlockSFXPlay;
+        upgradeManager.OnAutoclickerUpgrade += UpgradeSFXPlay;
+        upgradeManager.OnChanceCoinDropUpgrade += UpgradeSFXPlay;
+        upgradeManager.OnClickUpgrade += UpgradeSFXPlay;
+        upgradeManager.OnCoutCoinForDropUpgrade += UpgradeSFXPlay;
+        upgradeManager.OnJackpotUpgrade += UpgradeSFXPlay;
+        upgradeManager.OnJackpotFillSpeedUpgrade += UpgradeSFXPlay;
+        upgradeManager.OnNoCoinForUpgrade += NoCoinSFXPlay;
+        upgradeManager.OnAutoclickerUnlock += AutoclickerUnlockSFXPlay;
         progressBarManager.OnBarFilled += OrgasmSFXPlay;
         coinManager.OnCoinDrop += CoinDropSFXPlay;         
     }
@@ -35,14 +35,14 @@ public class GameplayAudio : MonoBehaviour
     private void OnDestroy()
     {
         clickHandler.OnClick -= ClickSFXPlay;
-        UpgradeManager.Instance.OnAutoclickerUpgrade -= UpgradeSFXPlay;
-        UpgradeManager.Instance.OnChanceCoinDropUpgrade -= UpgradeSFXPlay;
-        UpgradeManager.Instance.OnClickUpgrade -= UpgradeSFXPlay;
-        UpgradeManager.Instance.OnCoutCoinForDropUpgrade -= UpgradeSFXPlay;
-        UpgradeManager.Instance.OnJackpotUpgrade -= UpgradeSFXPlay;
-        UpgradeManager.Instance.OnJackpotFillSpeedUpgrade -= UpgradeSFXPlay;
-        UpgradeManager.Instance.OnNoCoinForUpgrade -= NoCoinSFXPlay;
-        UpgradeManager.Instance.OnAutoclickerUnlock -= AutoclickerUnlockSFXPlay;
+        upgradeManager.OnAutoclickerUpgrade -= UpgradeSFXPlay;
+        upgradeManager.OnChanceCoinDropUpgrade -= UpgradeSFXPlay;
+        upgradeManager.OnClickUpgrade -= UpgradeSFXPlay;
+        upgradeManager.OnCoutCoinForDropUpgrade -= UpgradeSFXPlay;
+        upgradeManager.OnJackpotUpgrade -= UpgradeSFXPlay;
+        upgradeManager.OnJackpotFillSpeedUpgrade -= UpgradeSFXPlay;
+        upgradeManager.OnNoCoinForUpgrade -= NoCoinSFXPlay;
+        upgradeManager.OnAutoclickerUnlock -= AutoclickerUnlockSFXPlay;
         progressBarManager.OnBarFilled -= OrgasmSFXPlay;
         coinManager.OnCoinDrop -= CoinDropSFXPlay;
     }

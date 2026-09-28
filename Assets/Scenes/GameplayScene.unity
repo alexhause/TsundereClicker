@@ -1206,6 +1206,7 @@ MonoBehaviour:
   barfillPercentage: 0.01
   clickHendler: {fileID: 835154518}
   progressBarFillImage: {fileID: 141710269}
+  upgradeManager: {fileID: 1854912356}
 --- !u!1 &265990469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,6 +2086,7 @@ MonoBehaviour:
   clickHandler: {fileID: 835154518}
   progressBarManager: {fileID: 251461763}
   coinManager: {fileID: 2014381976}
+  upgradeManager: {fileID: 1854912356}
 --- !u!1 &458931275 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4456623962844418225, guid: ddddfac19f0165a43ba210d4380d1dbf, type: 3}
@@ -3299,6 +3301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   levelManager: {fileID: 2045400575}
   gameplayManager: {fileID: 357477766}
+  upgradeManager: {fileID: 1854912356}
   autoClickerEnable: 0
   autoclickInterval: 3
   clickPower: 1
@@ -4540,6 +4543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoCoinTextAnimation
   _coinCountText: {fileID: 988393953}
+  upgradeManager: {fileID: 1854912356}
 --- !u!1 &1603775376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5083,6 +5087,7 @@ MonoBehaviour:
   autoclickerUpgradeCostText: {fileID: 656673410}
   autoClickerUpgradeBtn: {fileID: 1367247162}
   clickHandler: {fileID: 835154518}
+  upgradeManager: {fileID: 1854912356}
 --- !u!1 &1793002469
 GameObject:
   m_ObjectHideFlags: 0
@@ -5611,6 +5616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AutoclikerLockAnimation
   duration: 0.2
   jumpPower: 0.1
+  upgradeManager: {fileID: 1854912356}
 --- !u!1 &1884184727
 GameObject:
   m_ObjectHideFlags: 0
@@ -5785,6 +5791,7 @@ MonoBehaviour:
   clickHendler: {fileID: 835154518}
   gameplayManager: {fileID: 357477766}
   progressBarManager: {fileID: 251461763}
+  upgradeManager: {fileID: 1854912356}
 --- !u!4 &2014381977
 Transform:
   m_ObjectHideFlags: 0
