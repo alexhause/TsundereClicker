@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameplayAudio : MonoBehaviour
@@ -12,6 +13,7 @@ public class GameplayAudio : MonoBehaviour
 
     [SerializeField] private ClickHandler clickHandler;
     [SerializeField] private ProgressBarManager progressBarManager;
+    [SerializeField] private CoinManager coinManager;
 
 
     private void Start()
@@ -27,7 +29,7 @@ public class GameplayAudio : MonoBehaviour
         UpgradeManager.Instance.OnNoCoinForUpgrade += NoCoinSFXPlay;
         UpgradeManager.Instance.OnAutoclickerUnlock += AutoclickerUnlockSFXPlay;
         progressBarManager.OnBarFilled += OrgasmSFXPlay;
-        CoinManager.Instance.OnCoinDrop += CoinDropSFXPlay;         
+        coinManager.OnCoinDrop += CoinDropSFXPlay;         
     }
 
     private void OnDestroy()
@@ -42,7 +44,7 @@ public class GameplayAudio : MonoBehaviour
         UpgradeManager.Instance.OnNoCoinForUpgrade -= NoCoinSFXPlay;
         UpgradeManager.Instance.OnAutoclickerUnlock -= AutoclickerUnlockSFXPlay;
         progressBarManager.OnBarFilled -= OrgasmSFXPlay;
-        CoinManager.Instance.OnCoinDrop -= CoinDropSFXPlay;
+        coinManager.OnCoinDrop -= CoinDropSFXPlay;
     }
 
     private void UpgradeSFXPlay()

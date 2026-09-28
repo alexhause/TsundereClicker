@@ -1878,6 +1878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameplayManager
   clickHandler: {fileID: 835154518}
   levelManager: {fileID: 2045400575}
+  coinManager: {fileID: 2014381976}
 --- !u!4 &357477767
 Transform:
   m_ObjectHideFlags: 0
@@ -2083,6 +2084,7 @@ MonoBehaviour:
   _autoclicekrUnlocSFX: {fileID: 8300000, guid: 7ca2266d32cc2e74b9151a7770b32560, type: 3}
   clickHandler: {fileID: 835154518}
   progressBarManager: {fileID: 251461763}
+  coinManager: {fileID: 2014381976}
 --- !u!1 &458931275 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4456623962844418225, guid: ddddfac19f0165a43ba210d4380d1dbf, type: 3}
@@ -2101,6 +2103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinEffectManager
   coinDropEffect: {fileID: 458931278}
+  coinManager: {fileID: 2014381976}
 --- !u!198 &458931278 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3659781665623783096, guid: ddddfac19f0165a43ba210d4380d1dbf, type: 3}
@@ -3295,6 +3298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   levelManager: {fileID: 2045400575}
+  gameplayManager: {fileID: 357477766}
   autoClickerEnable: 0
   autoclickInterval: 3
   clickPower: 1
@@ -4522,6 +4526,7 @@ MonoBehaviour:
   jackpotAmountText: {fileID: 218710485}
   chanceCoinDropUpgradeCostText: {fileID: 265990471}
   coinChanceUpgradeBtn: {fileID: 201094671}
+  coinManager: {fileID: 2014381976}
 --- !u!114 &1576894975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5348,6 +5353,7 @@ MonoBehaviour:
   jackpotUpgradeCostFactor: 3.5
   _jackpotFillSpeedUpgradeCostFactor: 2.3
   autoclickerUpgradeCostFactor: 5.5
+  coinManager: {fileID: 2014381976}
 --- !u!4 &1854912357
 Transform:
   m_ObjectHideFlags: 0
@@ -5520,6 +5526,7 @@ MonoBehaviour:
   unlockSprite: {fileID: 1064545691, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
   lockSprite: {fileID: 1336561255, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
   upgradeManager: {fileID: 1854912356}
+  coinManager: {fileID: 2014381976}
 --- !u!114 &1882081473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5776,6 +5783,7 @@ MonoBehaviour:
   coinDropChance: 5
   jackpotAmountUppgradeFactor: 2.5
   clickHendler: {fileID: 835154518}
+  gameplayManager: {fileID: 357477766}
   progressBarManager: {fileID: 251461763}
 --- !u!4 &2014381977
 Transform:

@@ -28,6 +28,8 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private float _jackpotFillSpeedUpgradeCostFactor = 1.5f;
     [SerializeField] private float autoclickerUpgradeCostFactor = 1.5f;
 
+    [SerializeField] private CoinManager coinManager;
+
     public int ClickUpgradeCost { get { return clickUpgradeCost; } }
     public int ChanceCoinDropUpgradeCost { get { return chanceDropUpgradeCost; } }
     public int CountCoinForDroupgradeCost { get { return countCoinForDropUpgradeCost; } }
@@ -53,7 +55,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyClickUpgrade()
     {
-        if(CoinManager.Instance.TrySpendCoin((int)clickUpgradeCost))
+        if(coinManager.TrySpendCoin((int)clickUpgradeCost))
         {
             clickUpgradeCost = CalculateNewPrice(clickUpgradeCost, clickUpgradeCostFactor);
             OnClickUpgrade?.Invoke();
@@ -66,7 +68,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyChanceCoinDropUpgrade()
     {
-        if (CoinManager.Instance.TrySpendCoin(chanceDropUpgradeCost))
+        if (coinManager.TrySpendCoin(chanceDropUpgradeCost))
         {
             chanceDropUpgradeCost = CalculateNewPrice(chanceDropUpgradeCost, chanceDropUpgradeCostFactor);
             OnChanceCoinDropUpgrade?.Invoke();
@@ -79,7 +81,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyCountCoinForDropUpgrade()
     {
-        if (CoinManager.Instance.TrySpendCoin(countCoinForDropUpgradeCost))
+        if (coinManager.TrySpendCoin(countCoinForDropUpgradeCost))
         {
             countCoinForDropUpgradeCost = CalculateNewPrice(countCoinForDropUpgradeCost, countCoinForDropUpgradeCostFactor);
             OnCoutCoinForDropUpgrade?.Invoke();
@@ -92,7 +94,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyJackpotUpgrade()
     {
-        if (CoinManager.Instance.TrySpendCoin(jackpotUpgradeCost))
+        if (coinManager.TrySpendCoin(jackpotUpgradeCost))
         {
             jackpotUpgradeCost = CalculateNewPrice(jackpotUpgradeCost, jackpotUpgradeCostFactor);
             OnJackpotUpgrade?.Invoke();
@@ -105,7 +107,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyJackpotFillSpeedUpgrade()
     {
-        if (CoinManager.Instance.TrySpendCoin(_jackpotFillSpeedUpgradeCost))
+        if (coinManager.TrySpendCoin(_jackpotFillSpeedUpgradeCost))
         {
             _jackpotFillSpeedUpgradeCost = CalculateNewPrice(_jackpotFillSpeedUpgradeCost, _jackpotFillSpeedUpgradeCostFactor);
             OnJackpotFillSpeedUpgrade?.Invoke();
@@ -118,7 +120,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyAutoclikerUnlock()
     {
-        if (CoinManager.Instance.TrySpendCoin(autoclickerUnlockCost))
+        if (coinManager.TrySpendCoin(autoclickerUnlockCost))
         {
             OnAutoclickerUnlock?.Invoke();
         }
@@ -131,7 +133,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyAutoclikerUpgrade()
     {
-        if (CoinManager.Instance.TrySpendCoin(autoclickerUpgradeCost))
+        if (coinManager.TrySpendCoin(autoclickerUpgradeCost))
         {
             autoclickerUpgradeCost = CalculateNewPrice(autoclickerUpgradeCost, autoclickerUpgradeCostFactor);
             OnAutoclickerUpgrade?.Invoke();

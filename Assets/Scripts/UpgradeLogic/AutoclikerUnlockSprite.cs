@@ -6,7 +6,8 @@ public class AutoclikerUnlockSprite : MonoBehaviour, IPointerEnterHandler, IPoin
 {
     [SerializeField] private Sprite unlockSprite;
     [SerializeField] private Sprite lockSprite;
-    [SerializeField] UpgradeManager upgradeManager;
+    [SerializeField] private UpgradeManager upgradeManager;
+    [SerializeField] private CoinManager coinManager;
 
     private SpriteRenderer spriteRenderer;
 
@@ -32,7 +33,7 @@ public class AutoclikerUnlockSprite : MonoBehaviour, IPointerEnterHandler, IPoin
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(CoinManager.Instance.CurrentCoinCount >= upgradeManager.AutoclickerUnlockCost)
+        if(coinManager.CurrentCoinCount >= upgradeManager.AutoclickerUnlockCost)
         spriteRenderer.sprite = unlockSprite;
     }
 

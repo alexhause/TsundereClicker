@@ -1,16 +1,18 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CoinEffectManager : MonoBehaviour
 {
     [SerializeField] private ParticleSystem coinDropEffect;
+    [SerializeField] private CoinManager coinManager;
     private void Start()
     {
-        CoinManager.Instance.OnCoinDrop += CoinManager_OnCoinDrop;
+        coinManager.OnCoinDrop += CoinManager_OnCoinDrop;
     }
 
     private void OnDestroy()
     {
-        CoinManager.Instance.OnCoinDrop -= CoinManager_OnCoinDrop;
+        coinManager.OnCoinDrop -= CoinManager_OnCoinDrop;
     }
 
     private void CoinManager_OnCoinDrop(int obj)
