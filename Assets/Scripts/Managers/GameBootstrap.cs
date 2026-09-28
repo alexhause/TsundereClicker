@@ -5,6 +5,6 @@ public class GameBootstrap : MonoBehaviour
 {
     private void Start()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainMenu");
     }
 }

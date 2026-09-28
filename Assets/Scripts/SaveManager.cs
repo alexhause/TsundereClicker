@@ -39,11 +39,38 @@ public class SaveManager : MonoBehaviour
 
         PlayerPrefs.SetInt(AUTOCKICKER_KEY, data.autoClicker ? 1 : 0);
         PlayerPrefs.SetInt(AUTOCLICKER_POWER_KEY, data.autoclikerPower);
-
+        
         PlayerPrefs.Save();
 
         Debug.Log("Игра сохранена!");
 
         Debug.Log("Сердец: " + PlayerPrefs.GetInt(HEARTS_KEY));
+    }
+
+    public SaveData LoadGame()
+    {
+        return new SaveData
+        {
+            hearts = PlayerPrefs.GetInt(HEARTS_KEY),
+            clickPower = PlayerPrefs.GetInt(CLICK_POWER_KEY),
+            currentLevel = PlayerPrefs.GetInt(CURRENT_LEVEL_KEY),
+            currentStage = PlayerPrefs.GetInt(CURRENT_STAGE_KEY),
+            currentScore = PlayerPrefs.GetInt(CURRENT_SCORE_KEY),
+            heartDropChance = PlayerPrefs.GetInt(HEART_DROP_CHANCE_KEY),
+            jackpotReward = PlayerPrefs.GetInt(JACKPOT_REWARD_KEY),
+            autoClicker = (PlayerPrefs.GetInt(AUTOCKICKER_KEY) == 1),
+            autoclikerPower = PlayerPrefs.GetInt(AUTOCLICKER_POWER_KEY)
+        };
+    }
+
+    public bool HasSave()
+    {
+        return PlayerPrefs.HasKey(HEARTS_KEY);
+    }
+
+    public void DeleteSave()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
 }
