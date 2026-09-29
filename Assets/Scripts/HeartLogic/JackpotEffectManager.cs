@@ -4,7 +4,7 @@ public class JackpotEffectManager : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _jackpotDropEffect;
     [SerializeField] private ProgressBarManager _progressBarManager;
-    private void Start()
+    private void Awake()
     {
         _progressBarManager.OnBarFilled += _progressBarManager_OnBarFilled;
     }

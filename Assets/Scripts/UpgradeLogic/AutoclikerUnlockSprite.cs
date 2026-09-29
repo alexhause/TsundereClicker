@@ -11,12 +11,15 @@ public class AutoclikerUnlockSprite : MonoBehaviour, IPointerEnterHandler, IPoin
 
     private SpriteRenderer spriteRenderer;
 
+    private void Awake()
+    {
+        upgradeManager.OnAutoclickerUnlock += UpgradeManager_OnAutoclickerUnlock;
+    }
+
     private void Start()
     {
        spriteRenderer = GetComponent<SpriteRenderer>();
        spriteRenderer.sprite = lockSprite;
-
-        upgradeManager.OnAutoclickerUnlock += UpgradeManager_OnAutoclickerUnlock;
     }
 
     private void OnDestroy()

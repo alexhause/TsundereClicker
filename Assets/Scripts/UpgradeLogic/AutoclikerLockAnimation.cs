@@ -14,10 +14,6 @@ public class AutoclikerLockAnimation : MonoBehaviour
     private void Awake()
     {
         startPosition = transform.position;
-    }
-
-    private void Start()
-    {
         upgradeManager.OnNoCoinForUnlock += Instance_OnNoCoinForUnlock;
     }
 
@@ -26,12 +22,10 @@ public class AutoclikerLockAnimation : MonoBehaviour
         upgradeManager.OnNoCoinForUnlock -= Instance_OnNoCoinForUnlock;
     }
 
-
     private void Instance_OnNoCoinForUnlock()
     {
         PlayAnimation();
     }
-
 
     private void PlayAnimation()
     {

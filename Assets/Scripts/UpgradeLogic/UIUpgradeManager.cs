@@ -16,7 +16,7 @@ public class UIUpgradeManager : MonoBehaviour
     [SerializeField] private ClickHandler clickHandler;
     [SerializeField] private UpgradeManager upgradeManager;
 
-    private void Start()
+    private void Awake()
     {
         clickHandler.OnAutoclikerMax += ClickHendler_OnAutoclikerMax;
         upgradeManager.OnClickUpgrade += UpgradeManager_OnClickUpgrade;
@@ -26,8 +26,10 @@ public class UIUpgradeManager : MonoBehaviour
         upgradeManager.OnJackpotFillSpeedUpgrade += Instance_OnJackpotFillSpeedUpgrade;
         upgradeManager.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
         upgradeManager.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
-        
+    }
 
+    private void Start()
+    {
         countCoinForDropUgradeCostText.text = upgradeManager.CountCoinForDroupgradeCost.ToString();
         jackpotUpgradeCostText.text = upgradeManager.JackpotUpgradeCost.ToString();
         jackpotFillSpeedUpgradeCostText.text = upgradeManager.JackpotFillSpeedUpgradeCost.ToString();

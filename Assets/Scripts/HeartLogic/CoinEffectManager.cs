@@ -5,7 +5,8 @@ public class CoinEffectManager : MonoBehaviour
 {
     [SerializeField] private ParticleSystem coinDropEffect;
     [SerializeField] private CoinManager coinManager;
-    private void Start()
+
+    private void Awake()
     {
         coinManager.OnCoinDrop += CoinManager_OnCoinDrop;
     }

@@ -8,9 +8,6 @@ public class CharacterSpriteController : MonoBehaviour
     private void Awake()
     {
         characterSpriteRenderer = GetComponent<SpriteRenderer>();
-    }
-    void Start()
-    {
         levelManager.OnStageChanged += LevelManager_OnStageChanged;
         levelManager.OnNewLevelStart += LevelManager_OnNewLevelStart;
     }

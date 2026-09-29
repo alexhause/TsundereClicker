@@ -13,14 +13,17 @@ public class ProgressBarManager : MonoBehaviour
     [SerializeField] private Image progressBarFillImage;
 
     [SerializeField] private UpgradeManager upgradeManager;
-    
+
+
+    private void Awake()
+    {
+        upgradeManager.OnJackpotFillSpeedUpgrade += Instance_OnJackpotFillSpeedUpgrade;
+        clickHendler.OnClick += ClickHendler_OnClick;
+    }
 
     void Start()
     {
        progressBarFillImage.fillAmount = 0;
-
-       clickHendler.OnClick += ClickHendler_OnClick;
-        upgradeManager.OnJackpotFillSpeedUpgrade += Instance_OnJackpotFillSpeedUpgrade;
     }
     private void OnDestroy()
     {

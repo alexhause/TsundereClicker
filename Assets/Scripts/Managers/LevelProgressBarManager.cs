@@ -9,10 +9,14 @@ public class LevelProgressBarManager : MonoBehaviour
     [SerializeField] private Image progressBarFillImage;
 
 
+    private void Awake()
+    {
+        levelManager.OnStageComplete += LevelManager_OnStageComplete;
+    }
+
     void Start()
     {
-        progressBarFillImage.fillAmount = 0;
-        levelManager.OnStageComplete += LevelManager_OnStageComplete;
+        progressBarFillImage.fillAmount = 0;   
     }
 
     private void LevelManager_OnStageComplete()

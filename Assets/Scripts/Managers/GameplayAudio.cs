@@ -16,9 +16,8 @@ public class GameplayAudio : MonoBehaviour
     [SerializeField] private CoinManager coinManager;
     [SerializeField] private UpgradeManager upgradeManager;
 
-    private void Start()
+    private void Awake()
     {
-        AudioManager.Instance.PlayMusic(music);
         clickHandler.OnClick += ClickSFXPlay;
         upgradeManager.OnAutoclickerUpgrade += UpgradeSFXPlay;
         upgradeManager.OnChanceCoinDropUpgrade += UpgradeSFXPlay;
@@ -29,7 +28,12 @@ public class GameplayAudio : MonoBehaviour
         upgradeManager.OnNoCoinForUpgrade += NoCoinSFXPlay;
         upgradeManager.OnAutoclickerUnlock += AutoclickerUnlockSFXPlay;
         progressBarManager.OnBarFilled += OrgasmSFXPlay;
-        coinManager.OnCoinDrop += CoinDropSFXPlay;         
+        coinManager.OnCoinDrop += CoinDropSFXPlay;
+    }
+
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic(music);      
     }
 
     private void OnDestroy()

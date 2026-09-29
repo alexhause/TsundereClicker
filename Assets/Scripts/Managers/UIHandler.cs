@@ -15,14 +15,18 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private ClickHandler clickHendler;
     [SerializeField] private LevelManager levelManager;
 
-    private void Start()
+
+    private void Awake()
     {
         clickHendler.OnClick += ClickHendler_OnClick;
         clickHendler.OnTotalClickChange += ClickHendler_OnTotalClickChange;
-        
+
         levelManager.OnStageChanged += LevelManager_OnStageChanged;
         levelManager.OnNewLevelStart += LevelManager_OnNewLevelStart;
-        
+    }
+
+    private void Start()
+    {
         targetScoreTxt.text = levelManager.StageTargetScore.ToString();
     }
 

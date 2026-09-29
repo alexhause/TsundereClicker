@@ -23,7 +23,7 @@ public class HeartAnimation : MonoBehaviour
     [Tooltip("Тип сглаживания для возврата (рекомендуется OutElastic или OutBack)")]
     [SerializeField] private Ease returnEase = Ease.OutElastic;
 
-    private void Start()
+    private void Awake()
     {
         clickHandler.OnClick += PlayAnimation;
     }

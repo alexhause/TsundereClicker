@@ -32,15 +32,11 @@ public class CoinManager : MonoBehaviour
     private void Awake()
     {
         upgradeManager.OnJackpotUpgrade += UpgradeManager_OnJackpotUpgrade;
-    }
-
-    private void Start()
-    {
-        clickHendler.OnClick += ClickHendler_OnClick;
         gameplayManager.OnGameLoad += GameplayManager_OnGameLoad;
+        clickHendler.OnClick += ClickHendler_OnClick;
         upgradeManager.OnChanceCoinDropUpgrade += UpgradeManager_OnChanceCoinDropUpgrade;
         upgradeManager.OnCoutCoinForDropUpgrade += UpgradeManager_OnCoutCoinForDropUpgrade;
-        
+
         progressBarManager.OnBarFilled += ProgressBarManager_OnBarFilled;
     }
 
@@ -87,6 +83,7 @@ public class CoinManager : MonoBehaviour
     private void GameplayManager_OnGameLoad(SaveData saveData)
     {
         currentHeartCount = saveData.hearts;
+        OnHeartCountChange?.Invoke(currentHeartCount);
     }
 
     private void ClickHendler_OnClick()

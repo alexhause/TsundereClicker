@@ -12,13 +12,8 @@ public class NoCoinTextAnimation : MonoBehaviour
     private void Awake()
     {
         _defaultColor = _coinCountText.color;
-    }
-
-    private void Start()
-    {
         upgradeManager.OnNoCoinForUpgrade += PlayAnimation;
     }
-
     private void PlayAnimation()
     {
         _coinCountText.transform.DOKill();

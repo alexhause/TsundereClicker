@@ -34,15 +34,15 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         gameplayManager.OnGameLoad += GameplayManager_OnGameLoad;
+        upgradeManager.OnClickUpgrade += UpgradeManager_OnUpgrade;
+        upgradeManager.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
+        upgradeManager.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
+        levelManager.OnStageComplete += LevelManager_OnStageComplete;
     }
 
     void Start()
     {
         IsAutoclickMax = false;
-        upgradeManager.OnClickUpgrade += UpgradeManager_OnUpgrade;
-        upgradeManager.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
-        upgradeManager.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
-        levelManager.OnStageComplete += LevelManager_OnStageComplete;
     }
 
     private void Update()

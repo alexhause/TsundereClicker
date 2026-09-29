@@ -4530,6 +4530,7 @@ MonoBehaviour:
   chanceCoinDropUpgradeCostText: {fileID: 265990471}
   coinChanceUpgradeBtn: {fileID: 201094671}
   coinManager: {fileID: 2014381976}
+  gameplayManager: {fileID: 357477766}
 --- !u!114 &1576894975
 MonoBehaviour:
   m_ObjectHideFlags: 0

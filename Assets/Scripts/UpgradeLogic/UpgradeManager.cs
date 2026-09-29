@@ -13,7 +13,7 @@ public class UpgradeManager : MonoBehaviour
     public event Action OnNoCoinForUpgrade;
     public event Action OnNoCoinForUnlock;
 
-    [SerializeField] private int clickUpgradeCost = 10;
+   [SerializeField] private int clickUpgradeCost = 10;
    [SerializeField] private int chanceDropUpgradeCost = 10;
    [SerializeField] private int countCoinForDropUpgradeCost = 10;
    [SerializeField] private int jackpotUpgradeCost = 10;

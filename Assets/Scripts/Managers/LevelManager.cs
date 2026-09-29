@@ -22,12 +22,12 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         StageTargetScore = levels[currentLevel].stages[currentStage].targetScore;
+        clickHendler.OnClick += ClickHendler_OnClick;
     }
 
     private void Start()
     {     
         levelProgressBarManager = levelProgressBar.GetComponent<LevelProgressBarManager>();
-        clickHendler.OnClick += ClickHendler_OnClick;
     }
 
     private void ClickHendler_OnClick()
