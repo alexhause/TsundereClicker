@@ -9,6 +9,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private ClickHandler clickHandler;
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private CoinManager coinManager;
+    [SerializeField] private UpgradeManager upgradeManager;
 
     private void Start()
     {
@@ -28,7 +29,10 @@ public class GameplayManager : MonoBehaviour
             currentLevel = levelManager.CurrentLevel,
             currentStage = levelManager.CurrentStage,
             currentScore = clickHandler.TotalClick,
-            autoClicker = clickHandler.AutoClickerEnable
+            heartDropChance = coinManager.CoinDropChance,
+            heartsForDrop = coinManager.CountCoinForDrop,
+            autoClicker = clickHandler.AutoClickerEnable,
+            clickUpgradeCost = upgradeManager.ClickUpgradeCost
         };
         SaveManager.Instance.SaveGame(data);
     }

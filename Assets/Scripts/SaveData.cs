@@ -8,8 +8,11 @@ public class SaveData
     public int currentStage;
     public int currentScore;
 
-    public float heartDropChance;
+    public int heartDropChance;
     public int jackpotReward;
+    public int heartsForDrop;
+
+    public int clickUpgradeCost;
 
     public bool autoClicker;
     public int autoclikerPower;

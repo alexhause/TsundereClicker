@@ -19,12 +19,7 @@ public class GameplayAudio : MonoBehaviour
     private void Awake()
     {
         clickHandler.OnClick += ClickSFXPlay;
-        upgradeManager.OnAutoclickerUpgrade += UpgradeSFXPlay;
-        upgradeManager.OnChanceCoinDropUpgrade += UpgradeSFXPlay;
-        upgradeManager.OnClickUpgrade += UpgradeSFXPlay;
-        upgradeManager.OnCoutCoinForDropUpgrade += UpgradeSFXPlay;
-        upgradeManager.OnJackpotUpgrade += UpgradeSFXPlay;
-        upgradeManager.OnJackpotFillSpeedUpgrade += UpgradeSFXPlay;
+        upgradeManager.OnByuAnyUpgrade += UpgradeSFXPlay;
         upgradeManager.OnNoCoinForUpgrade += NoCoinSFXPlay;
         upgradeManager.OnAutoclickerUnlock += AutoclickerUnlockSFXPlay;
         progressBarManager.OnBarFilled += OrgasmSFXPlay;
@@ -39,12 +34,7 @@ public class GameplayAudio : MonoBehaviour
     private void OnDestroy()
     {
         clickHandler.OnClick -= ClickSFXPlay;
-        upgradeManager.OnAutoclickerUpgrade -= UpgradeSFXPlay;
-        upgradeManager.OnChanceCoinDropUpgrade -= UpgradeSFXPlay;
-        upgradeManager.OnClickUpgrade -= UpgradeSFXPlay;
-        upgradeManager.OnCoutCoinForDropUpgrade -= UpgradeSFXPlay;
-        upgradeManager.OnJackpotUpgrade -= UpgradeSFXPlay;
-        upgradeManager.OnJackpotFillSpeedUpgrade -= UpgradeSFXPlay;
+        upgradeManager.OnByuAnyUpgrade -= UpgradeSFXPlay;
         upgradeManager.OnNoCoinForUpgrade -= NoCoinSFXPlay;
         upgradeManager.OnAutoclickerUnlock -= AutoclickerUnlockSFXPlay;
         progressBarManager.OnBarFilled -= OrgasmSFXPlay;

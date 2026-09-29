@@ -22,9 +22,12 @@ public class SaveManager : MonoBehaviour
     private const string CURRENT_STAGE_KEY = "CurrentStage";
     private const string CURRENT_SCORE_KEY = "CurrentScore";
     private const string HEART_DROP_CHANCE_KEY = "HeartDropChance";
+    private const string HEART_FOR_DROP_KEY = "HeartForDrop";
     private const string JACKPOT_REWARD_KEY = "JackpotReward";
     private const string AUTOCKICKER_KEY = "AutoClicker";
     private const string AUTOCLICKER_POWER_KEY = "AutoClickerPower";
+
+    private const string CLICK_UPGRADE_COST_KEY = "ClickUpgradeCost";
 
     public void SaveGame(SaveData data)
     {
@@ -33,12 +36,15 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt(CURRENT_LEVEL_KEY, data.currentLevel);
         PlayerPrefs.SetInt(CURRENT_STAGE_KEY, data.currentStage);
         PlayerPrefs.SetInt(CURRENT_SCORE_KEY, data.currentScore);
+        PlayerPrefs.SetInt(HEART_FOR_DROP_KEY, data.heartsForDrop);
 
-        PlayerPrefs.SetFloat(HEART_DROP_CHANCE_KEY, data.heartDropChance);
+        PlayerPrefs.SetInt(HEART_DROP_CHANCE_KEY, data.heartDropChance);
         PlayerPrefs.SetInt(JACKPOT_REWARD_KEY, data.jackpotReward);
 
         PlayerPrefs.SetInt(AUTOCKICKER_KEY, data.autoClicker ? 1 : 0);
         PlayerPrefs.SetInt(AUTOCLICKER_POWER_KEY, data.autoclikerPower);
+
+        PlayerPrefs.SetInt(CLICK_UPGRADE_COST_KEY, data.clickUpgradeCost);
         
         PlayerPrefs.Save();
 
@@ -57,9 +63,11 @@ public class SaveManager : MonoBehaviour
             currentStage = PlayerPrefs.GetInt(CURRENT_STAGE_KEY),
             currentScore = PlayerPrefs.GetInt(CURRENT_SCORE_KEY),
             heartDropChance = PlayerPrefs.GetInt(HEART_DROP_CHANCE_KEY),
+            heartsForDrop = PlayerPrefs.GetInt(HEART_FOR_DROP_KEY),
             jackpotReward = PlayerPrefs.GetInt(JACKPOT_REWARD_KEY),
             autoClicker = (PlayerPrefs.GetInt(AUTOCKICKER_KEY) == 1),
-            autoclikerPower = PlayerPrefs.GetInt(AUTOCLICKER_POWER_KEY)
+            autoclikerPower = PlayerPrefs.GetInt(AUTOCLICKER_POWER_KEY),
+            clickUpgradeCost = PlayerPrefs.GetInt(CLICK_UPGRADE_COST_KEY)
         };
     }
 

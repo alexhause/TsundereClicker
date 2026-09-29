@@ -83,7 +83,11 @@ public class CoinManager : MonoBehaviour
     private void GameplayManager_OnGameLoad(SaveData saveData)
     {
         currentHeartCount = saveData.hearts;
+        coinDropChance = saveData.heartDropChance;
+        countCoinForDrop = saveData.heartsForDrop;
         OnHeartCountChange?.Invoke(currentHeartCount);
+        OnCountCoinForDropChange?.Invoke();
+        OnCoinDropChanceChange?.Invoke(coinDropChance);
     }
 
     private void ClickHendler_OnClick()

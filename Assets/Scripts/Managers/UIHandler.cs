@@ -35,8 +35,6 @@ public class UIHandler : MonoBehaviour
         clickHendler.OnClick -= ClickHendler_OnClick;
         clickHendler.OnTotalClickChange -= ClickHendler_OnTotalClickChange;
         
-
-
         levelManager.OnStageChanged -= LevelManager_OnStageChanged;
         levelManager.OnNewLevelStart -= LevelManager_OnNewLevelStart;
     }
