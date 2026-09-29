@@ -19,7 +19,7 @@ public class SaveData
     public int jackpotFillSpeedUpgradeCost;
     public int autoclikerUpgradeCost;
 
-    public bool autoClicker;
+    public bool autoClickerUnlock;
     public int autoclikerPower;
 
 }

@@ -18,7 +18,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private GameplayManager gameplayManager;
     [SerializeField] private UpgradeManager upgradeManager;
-    [SerializeField] private bool autoClickerEnable;
+    [SerializeField] private bool autoClickerEnable = false;
     [SerializeField, Range(1,20)] private int autoclickInterval = 20;
 
     [SerializeField] private int clickPower = 1;
@@ -38,11 +38,6 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
         upgradeManager.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
         upgradeManager.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
         levelManager.OnStageComplete += LevelManager_OnStageComplete;
-    }
-
-    void Start()
-    {
-        IsAutoclickMax = false;
     }
 
     private void Update()
@@ -96,6 +91,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     private void GameplayManager_OnGameLoad(SaveData saveData)
     {
         clickPower = saveData.clickPower;
+        autoClickerEnable = saveData.autoClickerUnlock;
     }
 
     private void Instance_OnAutoclickerUnlock()

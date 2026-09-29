@@ -15,6 +15,7 @@ public class UIUpgradeManager : MonoBehaviour
     [SerializeField] private Button autoClickerUpgradeBtn;
     [SerializeField] private ClickHandler clickHandler;
     [SerializeField] private UpgradeManager upgradeManager;
+    [SerializeField] private GameplayManager gameplayManager;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class UIUpgradeManager : MonoBehaviour
         upgradeManager.OnJackpotFillSpeedUpgrade += Instance_OnJackpotFillSpeedUpgrade;
         upgradeManager.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
         upgradeManager.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
+        gameplayManager.OnGameLoad += GameplayManager_OnGameLoad;
     }
 
     private void Start()
@@ -35,7 +37,7 @@ public class UIUpgradeManager : MonoBehaviour
         jackpotFillSpeedUpgradeCostText.text = upgradeManager.JackpotFillSpeedUpgradeCost.ToString();
         clickUpgradeCostText.text = upgradeManager.ClickUpgradeCost.ToString();
         chanceCoinDropUpgradeCost.text = upgradeManager.ChanceCoinDropUpgradeCost.ToString();
-        autoclickerUpgradeCostText.text = upgradeManager.AutoclickerUnlockCost.ToString();
+        //autoclickerUpgradeCostText.text = upgradeManager.AutoclickerUnlockCost.ToString();
     }
 
     private void OnDestroy()
@@ -47,8 +49,19 @@ public class UIUpgradeManager : MonoBehaviour
         upgradeManager.OnJackpotFillSpeedUpgrade -= Instance_OnJackpotFillSpeedUpgrade;
         upgradeManager.OnAutoclickerUnlock -= Instance_OnAutoclickerUnlock;
         upgradeManager.OnAutoclickerUpgrade -= Instance_OnAutoclickerUpgrade;
+        gameplayManager.OnGameLoad -= GameplayManager_OnGameLoad;
 
         clickHandler.OnAutoclikerMax -= ClickHendler_OnAutoclikerMax;
+    }
+
+    private void GameplayManager_OnGameLoad(SaveData save)
+    {
+        if (save.autoClickerUnlock)
+        {
+            autoClickerUpgradeBtn.image.raycastTarget = true;
+            autoClickerUpgradeBtn.interactable = true;
+            autoclickerUpgradeCostText.text = save.autoclikerUpgradeCost.ToString();
+        }
     }
 
     private void Instance_OnAutoclickerUpgrade()

@@ -3340,7 +3340,7 @@ MonoBehaviour:
   gameplayManager: {fileID: 357477766}
   upgradeManager: {fileID: 1854912356}
   autoClickerEnable: 0
-  autoclickInterval: 3
+  autoclickInterval: 20
   clickPower: 1
 --- !u!1 &850880046
 GameObject:
@@ -5126,6 +5126,7 @@ MonoBehaviour:
   autoClickerUpgradeBtn: {fileID: 1367247162}
   clickHandler: {fileID: 835154518}
   upgradeManager: {fileID: 1854912356}
+  gameplayManager: {fileID: 357477766}
 --- !u!1 &1793002469
 GameObject:
   m_ObjectHideFlags: 0
@@ -5571,6 +5572,7 @@ MonoBehaviour:
   lockSprite: {fileID: 1336561255, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
   upgradeManager: {fileID: 1854912356}
   coinManager: {fileID: 2014381976}
+  gameplayManager: {fileID: 357477766}
 --- !u!114 &1882081473
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class GameplayManager : MonoBehaviour
             currentScore = clickHandler.TotalClick,
             heartDropChance = coinManager.CoinDropChance,
             heartsForDrop = coinManager.CountCoinForDrop,
-            autoClicker = clickHandler.AutoClickerEnable,
+            autoClickerUnlock = clickHandler.AutoClickerEnable,
             clickUpgradeCost = upgradeManager.ClickUpgradeCost,
             chanceHeartDropUpgradeCost = upgradeManager.ChanceCoinDropUpgradeCost,
             countHeartForDrop = coinManager.CountCoinForDrop,

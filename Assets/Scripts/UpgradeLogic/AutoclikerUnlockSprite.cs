@@ -8,12 +8,14 @@ public class AutoclikerUnlockSprite : MonoBehaviour, IPointerEnterHandler, IPoin
     [SerializeField] private Sprite lockSprite;
     [SerializeField] private UpgradeManager upgradeManager;
     [SerializeField] private CoinManager coinManager;
+    [SerializeField] private GameplayManager gameplayManager;
 
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         upgradeManager.OnAutoclickerUnlock += UpgradeManager_OnAutoclickerUnlock;
+        gameplayManager.OnGameLoad += GameplayManager_OnGameLoad;
     }
 
     private void Start()
@@ -25,7 +27,17 @@ public class AutoclikerUnlockSprite : MonoBehaviour, IPointerEnterHandler, IPoin
     private void OnDestroy()
     {
         upgradeManager.OnAutoclickerUnlock -= UpgradeManager_OnAutoclickerUnlock;
+        gameplayManager.OnGameLoad -= GameplayManager_OnGameLoad;
     }
+
+    private void GameplayManager_OnGameLoad(SaveData save)
+    {
+        if (save.autoClickerUnlock)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     private void UpgradeManager_OnAutoclickerUnlock()
     {

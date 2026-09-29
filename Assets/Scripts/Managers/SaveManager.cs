@@ -46,7 +46,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt(HEART_DROP_CHANCE_KEY, data.heartDropChance);
         PlayerPrefs.SetInt(JACKPOT_REWARD_KEY, data.jackpotReward);
 
-        PlayerPrefs.SetInt(AUTOCKICKER_KEY, data.autoClicker ? 1 : 0);
+        PlayerPrefs.SetInt(AUTOCKICKER_KEY, data.autoClickerUnlock ? 1 : 0);
         PlayerPrefs.SetInt(AUTOCLICKER_POWER_KEY, data.autoclikerPower);
 
         PlayerPrefs.SetInt(CLICK_UPGRADE_COST_KEY, data.clickUpgradeCost);
@@ -76,7 +76,7 @@ public class SaveManager : MonoBehaviour
             heartDropChance = PlayerPrefs.GetInt(HEART_DROP_CHANCE_KEY),
             heartsForDrop = PlayerPrefs.GetInt(HEART_FOR_DROP_KEY),
             jackpotReward = PlayerPrefs.GetInt(JACKPOT_REWARD_KEY),
-            autoClicker = (PlayerPrefs.GetInt(AUTOCKICKER_KEY) == 1),
+            autoClickerUnlock = (PlayerPrefs.GetInt(AUTOCKICKER_KEY) == 1),
             autoclikerPower = PlayerPrefs.GetInt(AUTOCLICKER_POWER_KEY),
             clickUpgradeCost = PlayerPrefs.GetInt(CLICK_UPGRADE_COST_KEY),
             chanceHeartDropUpgradeCost = PlayerPrefs.GetInt(CHANCE_HEART_DROP_UPGRADE_COST_KEY),
