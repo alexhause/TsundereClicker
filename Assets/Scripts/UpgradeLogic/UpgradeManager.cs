@@ -152,12 +152,6 @@ public class UpgradeManager : MonoBehaviour
         jackpotUpgradeCost = save.jackpotUpgradeCost;
         _jackpotFillSpeedUpgradeCost = save.jackpotFillSpeedUpgradeCost;
         autoclickerUpgradeCost = save.autoclikerUpgradeCost;
-        OnClickUpgrade?.Invoke();
-        OnAutoclickerUpgrade?.Invoke();
-        OnCoutCoinForDropUpgrade?.Invoke();
-        OnJackpotFillSpeedUpgrade?.Invoke();
-        OnJackpotUpgrade?.Invoke();
-        OnChanceCoinDropUpgrade?.Invoke();
     }
 
     private int CalculateNewPrice(int currentPrice, float factor)

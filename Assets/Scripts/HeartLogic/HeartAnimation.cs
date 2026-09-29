@@ -23,6 +23,8 @@ public class HeartAnimation : MonoBehaviour
     [Tooltip("Тип сглаживания для возврата (рекомендуется OutElastic или OutBack)")]
     [SerializeField] private Ease returnEase = Ease.OutElastic;
 
+    private Tweener clickTweener;
+
     private void Awake()
     {
         clickHandler.OnClick += PlayAnimation;
@@ -35,13 +37,22 @@ public class HeartAnimation : MonoBehaviour
 
     private void PlayAnimation()
     {
-        // Сбрасываем масштаб и убиваем прошлый твин, чтобы быстрые клики не ломали логику
-        transform.DOKill();
+        // Если твин активен, плавно или мгновенно останавливаем его
+        if (clickTweener != null && clickTweener.IsActive())
+        {
+            clickTweener.Kill();
+        }
+
+        // Сбрасываем размер
         transform.localScale = Vector3.one;
 
-        // Запуск последовательности с переменными из инспектора
-        Sequence clickSequence = DOTween.Sequence();
-        clickSequence.Append(transform.DOScale(targetScale, squeezeDuration).SetEase(squeezeEase));
-        clickSequence.Append(transform.DOScale(1f, returnDuration).SetEase(returnEase));
+        // Запускаем твин «туда» и сразу через OnComplete запускаем твин «обратно»
+        clickTweener = transform.DOScale(targetScale, squeezeDuration)
+            .SetEase(squeezeEase)
+            .OnComplete(() =>
+            {
+                // Когда сжатие завершилось, возвращаем размер назад
+                clickTweener = transform.DOScale(1f, returnDuration).SetEase(returnEase);
+            });
     }
 }

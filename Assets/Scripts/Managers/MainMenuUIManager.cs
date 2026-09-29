@@ -18,4 +18,9 @@ public class MainMenuUIManager : MonoBehaviour
         }
         SceneManager.LoadScene("GameplayScene");
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

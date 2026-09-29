@@ -28,6 +28,8 @@ public class UIUpgradeManager : MonoBehaviour
         upgradeManager.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
         upgradeManager.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
         gameplayManager.OnGameLoad += GameplayManager_OnGameLoad;
+
+        autoclickerUpgradeCostText.text = upgradeManager.AutoclickerUnlockCost.ToString();
     }
 
     private void Start()
@@ -37,7 +39,7 @@ public class UIUpgradeManager : MonoBehaviour
         jackpotFillSpeedUpgradeCostText.text = upgradeManager.JackpotFillSpeedUpgradeCost.ToString();
         clickUpgradeCostText.text = upgradeManager.ClickUpgradeCost.ToString();
         chanceCoinDropUpgradeCost.text = upgradeManager.ChanceCoinDropUpgradeCost.ToString();
-        //autoclickerUpgradeCostText.text = upgradeManager.AutoclickerUnlockCost.ToString();
+        
     }
 
     private void OnDestroy()

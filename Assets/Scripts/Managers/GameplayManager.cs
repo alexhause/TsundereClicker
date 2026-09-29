@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -37,8 +38,15 @@ public class GameplayManager : MonoBehaviour
             countHeartForDrop = coinManager.CountCoinForDrop,
             jackpotFillSpeedUpgradeCost = upgradeManager.JackpotFillSpeedUpgradeCost,
             jackpotUpgradeCost = upgradeManager.JackpotUpgradeCost,
-            autoclikerUpgradeCost = upgradeManager.AutoclickerUpgradeCost
+            jackpotReward = coinManager.JackpotAmount,
+            autoclikerUpgradeCost = upgradeManager.AutoclickerUpgradeCost,
+            autoclikerPower = clickHandler.AutoClickerInterval
         };
         SaveManager.Instance.SaveGame(data);
+    }
+
+    public void Exit()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

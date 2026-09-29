@@ -14,6 +14,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     public int ClickPower { get { return clickPower; } }
     public bool IsAutoclickMax { get; private set; }
     public bool AutoClickerEnable { get { return autoClickerEnable; } }
+    public int AutoClickerInterval { get { return autoclickInterval; } }
 
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private GameplayManager gameplayManager;
@@ -92,6 +93,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     {
         clickPower = saveData.clickPower;
         autoClickerEnable = saveData.autoClickerUnlock;
+        autoclickInterval = saveData.autoclikerPower;
     }
 
     private void Instance_OnAutoclickerUnlock()
