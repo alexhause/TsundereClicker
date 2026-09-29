@@ -13,7 +13,13 @@ public class SaveData
     public int heartsForDrop;
 
     public int clickUpgradeCost;
+    public int chanceHeartDropUpgradeCost;
+    public int countHeartForDrop;
+    public int jackpotUpgradeCost;
+    public int jackpotFillSpeedUpgradeCost;
+    public int autoclikerUpgradeCost;
 
     public bool autoClicker;
     public int autoclikerPower;
+
 }

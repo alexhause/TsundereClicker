@@ -147,7 +147,17 @@ public class UpgradeManager : MonoBehaviour
     private void GameplayManager_OnGameLoad(SaveData save)
     {
         clickUpgradeCost = save.clickUpgradeCost;
+        chanceDropUpgradeCost = save.chanceHeartDropUpgradeCost;
+        countCoinForDropUpgradeCost = save.countHeartForDrop;
+        jackpotUpgradeCost = save.jackpotUpgradeCost;
+        _jackpotFillSpeedUpgradeCost = save.jackpotFillSpeedUpgradeCost;
+        autoclickerUpgradeCost = save.autoclikerUpgradeCost;
         OnClickUpgrade?.Invoke();
+        OnAutoclickerUpgrade?.Invoke();
+        OnCoutCoinForDropUpgrade?.Invoke();
+        OnJackpotFillSpeedUpgrade?.Invoke();
+        OnJackpotUpgrade?.Invoke();
+        OnChanceCoinDropUpgrade?.Invoke();
     }
 
     private int CalculateNewPrice(int currentPrice, float factor)

@@ -28,6 +28,11 @@ public class SaveManager : MonoBehaviour
     private const string AUTOCLICKER_POWER_KEY = "AutoClickerPower";
 
     private const string CLICK_UPGRADE_COST_KEY = "ClickUpgradeCost";
+    private const string CHANCE_HEART_DROP_UPGRADE_COST_KEY = "ChanceHeartDropUpgradeCost";
+    private const string COUNT_HEART_FOR_DROP_KEY = "CountHeartForDrop";
+    private const string JACKPOT_UPGRADE_COST_KEY = "JackpotUpgradeCost";
+    private const string JACKPOT_FILL_SPEED_UPGRADE_COST_KEY = "JackpotFillSpeedUpgradeCost";
+    private const string AUTOCLICKER_UPGRADE_COST_KEY = "AutoclickerUpgradeCost";
 
     public void SaveGame(SaveData data)
     {
@@ -45,7 +50,13 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt(AUTOCLICKER_POWER_KEY, data.autoclikerPower);
 
         PlayerPrefs.SetInt(CLICK_UPGRADE_COST_KEY, data.clickUpgradeCost);
-        
+        PlayerPrefs.SetInt(CHANCE_HEART_DROP_UPGRADE_COST_KEY, data.chanceHeartDropUpgradeCost);
+        PlayerPrefs.SetInt(COUNT_HEART_FOR_DROP_KEY, data.countHeartForDrop);
+        PlayerPrefs.SetInt(JACKPOT_UPGRADE_COST_KEY, data.jackpotUpgradeCost);
+        PlayerPrefs.SetInt(JACKPOT_FILL_SPEED_UPGRADE_COST_KEY, data.jackpotFillSpeedUpgradeCost);
+        PlayerPrefs.SetInt(AUTOCLICKER_UPGRADE_COST_KEY, data.autoclikerUpgradeCost);
+
+
         PlayerPrefs.Save();
 
         Debug.Log("Игра сохранена!");
@@ -67,7 +78,12 @@ public class SaveManager : MonoBehaviour
             jackpotReward = PlayerPrefs.GetInt(JACKPOT_REWARD_KEY),
             autoClicker = (PlayerPrefs.GetInt(AUTOCKICKER_KEY) == 1),
             autoclikerPower = PlayerPrefs.GetInt(AUTOCLICKER_POWER_KEY),
-            clickUpgradeCost = PlayerPrefs.GetInt(CLICK_UPGRADE_COST_KEY)
+            clickUpgradeCost = PlayerPrefs.GetInt(CLICK_UPGRADE_COST_KEY),
+            chanceHeartDropUpgradeCost = PlayerPrefs.GetInt(CHANCE_HEART_DROP_UPGRADE_COST_KEY),
+            countHeartForDrop = PlayerPrefs.GetInt(COUNT_HEART_FOR_DROP_KEY),
+            jackpotUpgradeCost = PlayerPrefs.GetInt(JACKPOT_UPGRADE_COST_KEY),
+            jackpotFillSpeedUpgradeCost = PlayerPrefs.GetInt(JACKPOT_FILL_SPEED_UPGRADE_COST_KEY),
+            autoclikerUpgradeCost = PlayerPrefs.GetInt(AUTOCLICKER_UPGRADE_COST_KEY)
         };
     }
 

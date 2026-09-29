@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private LevelData[] levels;
     [SerializeField] private ClickHandler clickHendler;
+    [SerializeField] private GameplayManager gameplayManager;
     [SerializeField] private GameObject levelProgressBar;
 
     private LevelProgressBarManager levelProgressBarManager;
@@ -23,6 +24,7 @@ public class LevelManager : MonoBehaviour
     {
         StageTargetScore = levels[currentLevel].stages[currentStage].targetScore;
         clickHendler.OnClick += ClickHendler_OnClick;
+        gameplayManager.OnGameLoad += GameplayManager_OnGameLoad;
     }
 
     private void Start()
@@ -39,6 +41,12 @@ public class LevelManager : MonoBehaviour
         }
             
         CompleteStage();
+    }
+    private void GameplayManager_OnGameLoad(SaveData save)
+    {
+        currentLevel = save.currentLevel;
+        currentStage = save.currentStage;
+        OnNewLevelStart?.Invoke(levels[currentLevel]);
     }
 
     private bool IsStageCompleted()

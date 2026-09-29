@@ -5824,8 +5824,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinManager
   jackpotAmount: 150
-  countCoinForDrop: 1
-  coinDropChance: 5
+  countCoinForDrop: 100
+  coinDropChance: 50
   jackpotAmountUppgradeFactor: 2.5
   clickHendler: {fileID: 835154518}
   gameplayManager: {fileID: 357477766}
@@ -5879,6 +5879,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 325e6467bdf920246b9d7ee027b09c7c, type: 2}
   - {fileID: 11400000, guid: 9e84fbf26838b1646b0aa5515509202c, type: 2}
   clickHendler: {fileID: 835154518}
+  gameplayManager: {fileID: 357477766}
   levelProgressBar: {fileID: 870032578}
 --- !u!4 &2045400576
 Transform:
