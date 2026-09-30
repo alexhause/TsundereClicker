@@ -14,7 +14,6 @@ public class ProgressBarManager : MonoBehaviour
 
     [SerializeField] private UpgradeManager upgradeManager;
 
-
     private void Awake()
     {
         upgradeManager.OnJackpotFillSpeedUpgrade += Instance_OnJackpotFillSpeedUpgrade;
@@ -40,7 +39,6 @@ public class ProgressBarManager : MonoBehaviour
             progressBarFillImage.fillAmount = 0;
         }
     }
-
     private void Instance_OnJackpotFillSpeedUpgrade()
     {
         if(barfillPercentage < 0.01f)

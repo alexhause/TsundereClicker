@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class UIHandler : MonoBehaviour
   
     [SerializeField] private ClickHandler clickHendler;
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private GameplayManager gameplayManager;
 
 
     private void Awake()
@@ -23,7 +25,10 @@ public class UIHandler : MonoBehaviour
 
         levelManager.OnStageChanged += LevelManager_OnStageChanged;
         levelManager.OnNewLevelStart += LevelManager_OnNewLevelStart;
+
+        gameplayManager.OnGameLoad += GameplayManager_OnGameLoad;
     }
+
 
     private void Start()
     {
@@ -37,6 +42,8 @@ public class UIHandler : MonoBehaviour
         
         levelManager.OnStageChanged -= LevelManager_OnStageChanged;
         levelManager.OnNewLevelStart -= LevelManager_OnNewLevelStart;
+
+        gameplayManager.OnGameLoad -= GameplayManager_OnGameLoad;
     }
 
     #region Методы обработки событий  
@@ -44,6 +51,12 @@ public class UIHandler : MonoBehaviour
     {
         pointCountText.text = clickHendler.TotalClick.ToString();
     }
+
+    private void GameplayManager_OnGameLoad(SaveData save)
+    {
+        pointCountText.text = save.currentScore.ToString();
+    }
+
     private void ClickHendler_OnTotalClickChange()
     {
         pointCountText.text = clickHendler.TotalClick.ToString();

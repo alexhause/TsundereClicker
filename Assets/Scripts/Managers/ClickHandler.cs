@@ -92,6 +92,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     private void GameplayManager_OnGameLoad(SaveData saveData)
     {
         clickPower = saveData.clickPower;
+        totalClick = saveData.currentScore;
         autoClickerEnable = saveData.autoClickerUnlock;
         autoclickInterval = saveData.autoclikerPower;
     }

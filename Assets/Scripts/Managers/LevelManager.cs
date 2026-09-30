@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public event Action<StageData> OnStageChanged;
     public event Action<LevelData> OnNewLevelStart;
     public int StageTargetScore {  get; private set; }
+    public int CurrentScore { get { return currentScore; } }
     public int CurrentLevel { get {  return currentLevel; }  }
     public int CurrentStage {  get { return currentStage; } }
 
@@ -19,6 +20,7 @@ public class LevelManager : MonoBehaviour
     private LevelProgressBarManager levelProgressBarManager;
     private int currentLevel = 0;
     private int currentStage = 0;
+    private int currentScore;
 
     private void Awake()
     {
@@ -46,7 +48,8 @@ public class LevelManager : MonoBehaviour
     {
         currentLevel = save.currentLevel;
         currentStage = save.currentStage;
-        OnNewLevelStart?.Invoke(levels[currentLevel]);
+        currentScore = save.currentScore;
+        OnStageChanged?.Invoke(levels[currentLevel].stages[currentStage]);
     }
 
     private bool IsStageCompleted()

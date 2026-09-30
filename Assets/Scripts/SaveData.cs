@@ -22,4 +22,6 @@ public class SaveData
     public bool autoClickerUnlock;
     public int autoclikerPower;
 
+    public float levelProgressBarFill;
+
 }

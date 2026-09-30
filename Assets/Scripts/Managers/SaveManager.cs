@@ -34,6 +34,8 @@ public class SaveManager : MonoBehaviour
     private const string JACKPOT_FILL_SPEED_UPGRADE_COST_KEY = "JackpotFillSpeedUpgradeCost";
     private const string AUTOCLICKER_UPGRADE_COST_KEY = "AutoclickerUpgradeCost";
 
+    private const string LEVEL_PROGRESSBER_FILL = "LevelProgressBarFill";
+
     public void SaveGame(SaveData data)
     {
         PlayerPrefs.SetInt(HEARTS_KEY, data.hearts);
@@ -55,6 +57,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt(JACKPOT_UPGRADE_COST_KEY, data.jackpotUpgradeCost);
         PlayerPrefs.SetInt(JACKPOT_FILL_SPEED_UPGRADE_COST_KEY, data.jackpotFillSpeedUpgradeCost);
         PlayerPrefs.SetInt(AUTOCLICKER_UPGRADE_COST_KEY, data.autoclikerUpgradeCost);
+        PlayerPrefs.SetFloat(LEVEL_PROGRESSBER_FILL, data.levelProgressBarFill);
 
 
         PlayerPrefs.Save();
@@ -83,7 +86,8 @@ public class SaveManager : MonoBehaviour
             countHeartForDrop = PlayerPrefs.GetInt(COUNT_HEART_FOR_DROP_KEY),
             jackpotUpgradeCost = PlayerPrefs.GetInt(JACKPOT_UPGRADE_COST_KEY),
             jackpotFillSpeedUpgradeCost = PlayerPrefs.GetInt(JACKPOT_FILL_SPEED_UPGRADE_COST_KEY),
-            autoclikerUpgradeCost = PlayerPrefs.GetInt(AUTOCLICKER_UPGRADE_COST_KEY)
+            autoclikerUpgradeCost = PlayerPrefs.GetInt(AUTOCLICKER_UPGRADE_COST_KEY),
+            levelProgressBarFill = PlayerPrefs.GetFloat(LEVEL_PROGRESSBER_FILL)
         };
     }
 

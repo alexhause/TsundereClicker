@@ -308,6 +308,7 @@ MonoBehaviour:
   autoClickerUpgradeBtn: {fileID: 1367247162}
   clickHendler: {fileID: 835154518}
   levelManager: {fileID: 2045400575}
+  gameplayManager: {fileID: 357477766}
 --- !u!223 &20937913
 Canvas:
   m_ObjectHideFlags: 0
@@ -2019,6 +2020,7 @@ MonoBehaviour:
   levelManager: {fileID: 2045400575}
   coinManager: {fileID: 2014381976}
   upgradeManager: {fileID: 1854912356}
+  levelProgressBar: {fileID: 870032580}
 --- !u!4 &357477767
 Transform:
   m_ObjectHideFlags: 0
@@ -3803,6 +3805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelProgressBarManager
   levelManager: {fileID: 2045400575}
   progressBarFillImage: {fileID: 2062416914}
+  gameplayManager: {fileID: 357477766}
 --- !u!1 &978523921
 GameObject:
   m_ObjectHideFlags: 0
