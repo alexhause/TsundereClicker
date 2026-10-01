@@ -12,6 +12,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private CoinManager coinManager;
     [SerializeField] private UpgradeManager upgradeManager;
     [SerializeField] private LevelProgressBarManager levelProgressBar;
+    [SerializeField] private ProgressBarManager progressBarManager;
 
     private void Start()
     {
@@ -42,7 +43,8 @@ public class GameplayManager : MonoBehaviour
             jackpotReward = coinManager.JackpotAmount,
             autoclikerUpgradeCost = upgradeManager.AutoclickerUpgradeCost,
             autoclikerPower = clickHandler.AutoClickerInterval,
-            levelProgressBarFill = levelProgressBar.ProgressBarFill
+            levelProgressBarFill = levelProgressBar.ProgressBarFill,
+            jackpotProgressBarFillSpeed = progressBarManager.BarFillPercent
         };
         SaveManager.Instance.SaveGame(data);
     }

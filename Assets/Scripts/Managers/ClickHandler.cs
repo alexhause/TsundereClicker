@@ -15,16 +15,19 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
     public bool IsAutoclickMax { get; private set; }
     public bool AutoClickerEnable { get { return autoClickerEnable; } }
     public int AutoClickerInterval { get { return autoclickInterval; } }
+    public int AutoClickerMinInterval { get { return autoClickerMinInterval; } }
 
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private GameplayManager gameplayManager;
     [SerializeField] private UpgradeManager upgradeManager;
     [SerializeField] private bool autoClickerEnable = false;
-    [SerializeField, Range(1,20)] private int autoclickInterval = 20;
+    [SerializeField, Range(5,20)] private int autoclickInterval = 20;
+    [SerializeField] private int autoClickerMinInterval = 5;
 
     [SerializeField] private int clickPower = 1;
     private int totalClick = 0;
     private float timer;
+ 
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -77,10 +80,10 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
 
     private void Instance_OnAutoclickerUpgrade()
     {
-        if(autoclickInterval == 2)
+        if(autoclickInterval == (autoClickerMinInterval + 1))
         {
             IsAutoclickMax = true;
-            autoclickInterval = 1;
+            autoclickInterval = autoClickerMinInterval;
             OnAutoclikerMax?.Invoke();
         }
 

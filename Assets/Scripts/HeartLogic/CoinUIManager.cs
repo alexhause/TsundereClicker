@@ -11,9 +11,6 @@ public class CoinUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI chanceCoinDropText;
     [SerializeField] private TextMeshProUGUI countCoinForDropText;
     [SerializeField] private TextMeshProUGUI jackpotAmountText;
-    [SerializeField] private TextMeshProUGUI chanceCoinDropUpgradeCostText;
-
-    [SerializeField] private Button coinChanceUpgradeBtn;
 
     [SerializeField] private CoinManager coinManager;
     [SerializeField] private GameplayManager gameplayManager;
@@ -22,7 +19,6 @@ public class CoinUIManager : MonoBehaviour
     {
         coinManager.OnHeartCountChange += Instance_OnHeartCountChange;
         coinManager.OnCoinDrop += CoinManager_OnCoinDrop;
-        coinManager.OnMaxDropChance += CoinManager_OnMaxDropChance;
         coinManager.OnCoinDropChanceChange += CoinManager_OnCoinDropChanceChange;
         coinManager.OnCountCoinForDropChange += CoinManager_OnCountCoinForDropChange;
         coinManager.OnJackpotAmountChange += CoinManager_OnJackpotAmountChange;
@@ -38,7 +34,7 @@ public class CoinUIManager : MonoBehaviour
     private void OnDestroy()
     {
         coinManager.OnCoinDrop -= CoinManager_OnCoinDrop;
-        coinManager.OnMaxDropChance -= CoinManager_OnMaxDropChance;
+
         coinManager.OnCoinDropChanceChange -= CoinManager_OnCoinDropChanceChange;
         coinManager.OnCountCoinForDropChange -= CoinManager_OnCountCoinForDropChange;
         coinManager.OnJackpotAmountChange -= CoinManager_OnJackpotAmountChange;
@@ -65,11 +61,7 @@ public class CoinUIManager : MonoBehaviour
         currentCoinCountText.text = newCount.ToString();
     }
 
-    private void CoinManager_OnMaxDropChance()
-    {
-        coinChanceUpgradeBtn.enabled = false;
-        chanceCoinDropUpgradeCostText.text = "MAX";
-    }
+
 
     private void CoinManager_OnCoinDrop(int currentCoinCount)
     {

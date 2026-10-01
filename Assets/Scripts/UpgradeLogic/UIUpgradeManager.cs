@@ -13,9 +13,14 @@ public class UIUpgradeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI jackpotFillSpeedUpgradeCostText;
     [SerializeField] private TextMeshProUGUI autoclickerUpgradeCostText;
     [SerializeField] private Button autoClickerUpgradeBtn;
+    [SerializeField] private Button jackpotFillSpeedUpgradeBtn;
+    [SerializeField] private TextMeshProUGUI chanceCoinDropUpgradeCostText;
+    [SerializeField] private Button coinChanceUpgradeBtn;
     [SerializeField] private ClickHandler clickHandler;
     [SerializeField] private UpgradeManager upgradeManager;
     [SerializeField] private GameplayManager gameplayManager;
+    [SerializeField] private ProgressBarManager progressBarManager;
+    [SerializeField] private CoinManager coinManager;
 
     private void Awake()
     {
@@ -28,18 +33,15 @@ public class UIUpgradeManager : MonoBehaviour
         upgradeManager.OnAutoclickerUnlock += Instance_OnAutoclickerUnlock;
         upgradeManager.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
         gameplayManager.OnGameLoad += GameplayManager_OnGameLoad;
+        coinManager.OnMaxDropChance += CoinManager_OnMaxDropChance;
+
 
         autoclickerUpgradeCostText.text = upgradeManager.AutoclickerUnlockCost.ToString();
-    }
-
-    private void Start()
-    {
         countCoinForDropUgradeCostText.text = upgradeManager.CountCoinForDroupgradeCost.ToString();
         jackpotUpgradeCostText.text = upgradeManager.JackpotUpgradeCost.ToString();
         jackpotFillSpeedUpgradeCostText.text = upgradeManager.JackpotFillSpeedUpgradeCost.ToString();
         clickUpgradeCostText.text = upgradeManager.ClickUpgradeCost.ToString();
         chanceCoinDropUpgradeCost.text = upgradeManager.ChanceCoinDropUpgradeCost.ToString();
-        
     }
 
     private void OnDestroy()
@@ -52,6 +54,7 @@ public class UIUpgradeManager : MonoBehaviour
         upgradeManager.OnAutoclickerUnlock -= Instance_OnAutoclickerUnlock;
         upgradeManager.OnAutoclickerUpgrade -= Instance_OnAutoclickerUpgrade;
         gameplayManager.OnGameLoad -= GameplayManager_OnGameLoad;
+        coinManager.OnMaxDropChance -= CoinManager_OnMaxDropChance;
 
         clickHandler.OnAutoclikerMax -= ClickHendler_OnAutoclikerMax;
     }
@@ -60,10 +63,35 @@ public class UIUpgradeManager : MonoBehaviour
     {
         if (save.autoClickerUnlock)
         {
-            autoClickerUpgradeBtn.image.raycastTarget = true;
-            autoClickerUpgradeBtn.interactable = true;
-            autoclickerUpgradeCostText.text = save.autoclikerUpgradeCost.ToString();
+            if(save.autoclikerPower == clickHandler.AutoClickerMinInterval)
+            {
+                autoClickerUpgradeBtn.enabled = false;
+                autoclickerUpgradeCostText.text = "MAX";
+            }
+            else
+            {
+                autoClickerUpgradeBtn.image.raycastTarget = true;
+                autoClickerUpgradeBtn.interactable = true;
+                autoclickerUpgradeCostText.text = save.autoclikerUpgradeCost.ToString();
+            }
         }
+        if(save.jackpotProgressBarFillSpeed == 10)
+        {
+            jackpotFillSpeedUpgradeBtn.enabled = false;
+            jackpotFillSpeedUpgradeCostText.text = "MAX";
+        }
+
+        if(save.heartDropChance == 100)
+        {
+            coinChanceUpgradeBtn.enabled = false;
+            chanceCoinDropUpgradeCostText.text = "MAX";
+        }
+    }
+
+    private void CoinManager_OnMaxDropChance()
+    {
+        coinChanceUpgradeBtn.enabled = false;
+        chanceCoinDropUpgradeCostText.text = "MAX";
     }
 
     private void Instance_OnAutoclickerUpgrade()
@@ -92,7 +120,16 @@ public class UIUpgradeManager : MonoBehaviour
 
     private void Instance_OnJackpotFillSpeedUpgrade()
     {
-        jackpotFillSpeedUpgradeCostText.text = upgradeManager.JackpotFillSpeedUpgradeCost.ToString();
+        if (!progressBarManager.FillSpeedUpgradeMax)
+        {
+            jackpotFillSpeedUpgradeCostText.text = upgradeManager.JackpotFillSpeedUpgradeCost.ToString();
+        }
+        else
+        {
+            jackpotFillSpeedUpgradeBtn.enabled = false;
+            jackpotFillSpeedUpgradeCostText.text = "MAX";
+        }
+       
     }
 
     private void UpgradeManager_OnCoutCoinForDropUpgrade()

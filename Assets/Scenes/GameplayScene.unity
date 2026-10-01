@@ -1342,10 +1342,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6523cba8ed80448a1ecf12913d0dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressBarManager
-  barfillPercentage: 0.01
+  barfillPercentage: 1
   clickHendler: {fileID: 835154518}
   progressBarFillImage: {fileID: 141710269}
   upgradeManager: {fileID: 1854912356}
+  gameplayManager: {fileID: 357477766}
 --- !u!1 &265990469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,6 +2022,7 @@ MonoBehaviour:
   coinManager: {fileID: 2014381976}
   upgradeManager: {fileID: 1854912356}
   levelProgressBar: {fileID: 870032580}
+  progressBarManager: {fileID: 251461763}
 --- !u!4 &357477767
 Transform:
   m_ObjectHideFlags: 0
@@ -3614,6 +3616,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 1854912356}
   autoClickerEnable: 0
   autoclickInterval: 20
+  autoClickerMinInterval: 5
   clickPower: 1
 --- !u!1 &850880046
 GameObject:
@@ -4838,8 +4841,6 @@ MonoBehaviour:
   chanceCoinDropText: {fileID: 850880048}
   countCoinForDropText: {fileID: 978523923}
   jackpotAmountText: {fileID: 218710485}
-  chanceCoinDropUpgradeCostText: {fileID: 265990471}
-  coinChanceUpgradeBtn: {fileID: 201094671}
   coinManager: {fileID: 2014381976}
   gameplayManager: {fileID: 357477766}
 --- !u!114 &1576894975
@@ -5398,9 +5399,14 @@ MonoBehaviour:
   jackpotFillSpeedUpgradeCostText: {fileID: 699518540}
   autoclickerUpgradeCostText: {fileID: 656673410}
   autoClickerUpgradeBtn: {fileID: 1367247162}
+  jackpotFillSpeedUpgradeBtn: {fileID: 176683841}
+  chanceCoinDropUpgradeCostText: {fileID: 265990471}
+  coinChanceUpgradeBtn: {fileID: 201094671}
   clickHandler: {fileID: 835154518}
   upgradeManager: {fileID: 1854912356}
   gameplayManager: {fileID: 357477766}
+  progressBarManager: {fileID: 251461763}
+  coinManager: {fileID: 2014381976}
 --- !u!1 &1793002469
 GameObject:
   m_ObjectHideFlags: 0
@@ -5658,19 +5664,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c38f3bfc9b1cc47a72fa4a5a6a57e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
-  clickUpgradeCost: 2
-  chanceDropUpgradeCost: 2
-  countCoinForDropUpgradeCost: 2
-  jackpotUpgradeCost: 2
-  _jackpotFillSpeedUpgradeCost: 2
-  autoclickerUnlockCost: 2
-  autoclickerUpgradeCost: 2
-  clickUpgradeCostFactor: 1.6
-  chanceDropUpgradeCostFactor: 1.65
-  countCoinForDropUpgradeCostFactor: 1.5
-  jackpotUpgradeCostFactor: 3.5
-  _jackpotFillSpeedUpgradeCostFactor: 2.3
-  autoclickerUpgradeCostFactor: 5.5
+  clickUpgradeCost: 1
+  chanceDropUpgradeCost: 1
+  countCoinForDropUpgradeCost: 1
+  jackpotUpgradeCost: 1
+  _jackpotFillSpeedUpgradeCost: 1
+  autoclickerUnlockCost: 1
+  autoclickerUpgradeCost: 1
+  clickUpgradeCostFactor: 1
+  chanceDropUpgradeCostFactor: 1
+  countCoinForDropUpgradeCostFactor: 1
+  jackpotUpgradeCostFactor: 1
+  _jackpotFillSpeedUpgradeCostFactor: 1
+  autoclickerUpgradeCostFactor: 1
   coinManager: {fileID: 2014381976}
   gameplayManager: {fileID: 357477766}
 --- !u!4 &1854912357

@@ -11,6 +11,7 @@ public class SaveData
     public int heartDropChance;
     public int jackpotReward;
     public int heartsForDrop;
+    public int jackpotProgressBarFillSpeed;
 
     public int clickUpgradeCost;
     public int chanceHeartDropUpgradeCost;

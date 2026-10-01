@@ -32,6 +32,7 @@ public class HeartAnimation : MonoBehaviour
 
     private void OnDestroy()
     {
+        clickTweener.Kill();
         clickHandler.OnClick -= PlayAnimation;
     }
 
