@@ -148,7 +148,7 @@ public class UpgradeManager : MonoBehaviour
     {
         clickUpgradeCost = save.clickUpgradeCost;
         chanceDropUpgradeCost = save.chanceHeartDropUpgradeCost;
-        countCoinForDropUpgradeCost = save.countHeartForDrop;
+        countCoinForDropUpgradeCost = save.countHeartForDropUpgradeCost;
         jackpotUpgradeCost = save.jackpotUpgradeCost;
         _jackpotFillSpeedUpgradeCost = save.jackpotFillSpeedUpgradeCost;
         autoclickerUpgradeCost = save.autoclikerUpgradeCost;

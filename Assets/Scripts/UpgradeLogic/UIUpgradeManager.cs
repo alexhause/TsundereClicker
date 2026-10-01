@@ -16,6 +16,7 @@ public class UIUpgradeManager : MonoBehaviour
     [SerializeField] private Button jackpotFillSpeedUpgradeBtn;
     [SerializeField] private TextMeshProUGUI chanceCoinDropUpgradeCostText;
     [SerializeField] private Button coinChanceUpgradeBtn;
+    [SerializeField] private Button jackpotUpgradeBtn;
     [SerializeField] private ClickHandler clickHandler;
     [SerializeField] private UpgradeManager upgradeManager;
     [SerializeField] private GameplayManager gameplayManager;
@@ -34,6 +35,7 @@ public class UIUpgradeManager : MonoBehaviour
         upgradeManager.OnAutoclickerUpgrade += Instance_OnAutoclickerUpgrade;
         gameplayManager.OnGameLoad += GameplayManager_OnGameLoad;
         coinManager.OnMaxDropChance += CoinManager_OnMaxDropChance;
+        coinManager.OnJackpotRewardMax += CoinManager_OnJackpotRewardMax;
 
 
         autoclickerUpgradeCostText.text = upgradeManager.AutoclickerUnlockCost.ToString();
@@ -55,6 +57,7 @@ public class UIUpgradeManager : MonoBehaviour
         upgradeManager.OnAutoclickerUpgrade -= Instance_OnAutoclickerUpgrade;
         gameplayManager.OnGameLoad -= GameplayManager_OnGameLoad;
         coinManager.OnMaxDropChance -= CoinManager_OnMaxDropChance;
+        coinManager.OnJackpotRewardMax -= CoinManager_OnJackpotRewardMax;
 
         clickHandler.OnAutoclikerMax -= ClickHendler_OnAutoclikerMax;
     }
@@ -80,18 +83,45 @@ public class UIUpgradeManager : MonoBehaviour
             jackpotFillSpeedUpgradeBtn.enabled = false;
             jackpotFillSpeedUpgradeCostText.text = "MAX";
         }
+        else
+        {
+            jackpotFillSpeedUpgradeCostText.text = save.jackpotFillSpeedUpgradeCost.ToString();
+        }
 
         if(save.heartDropChance == 100)
         {
             coinChanceUpgradeBtn.enabled = false;
             chanceCoinDropUpgradeCostText.text = "MAX";
         }
+        else
+        {
+            chanceCoinDropUpgradeCostText.text = save.chanceHeartDropUpgradeCost.ToString();
+        }
+
+        if(save.jackpotReward >= coinManager.JackpotMaxAmount)
+        {
+            jackpotUpgradeBtn.enabled = false;
+            jackpotUpgradeCostText.text = "MAX";
+        }
+        else
+        {
+            jackpotUpgradeCostText.text = save.jackpotUpgradeCost.ToString();
+        }
+
+        clickUpgradeCostText.text = save.clickUpgradeCost.ToString();
+        countCoinForDropUgradeCostText.text = save.countHeartForDropUpgradeCost.ToString();
     }
 
     private void CoinManager_OnMaxDropChance()
     {
         coinChanceUpgradeBtn.enabled = false;
         chanceCoinDropUpgradeCostText.text = "MAX";
+    }
+
+    private void CoinManager_OnJackpotRewardMax()
+    {
+        jackpotUpgradeBtn.enabled = false;
+        jackpotUpgradeCostText.text = "MAX";
     }
 
     private void Instance_OnAutoclickerUpgrade()

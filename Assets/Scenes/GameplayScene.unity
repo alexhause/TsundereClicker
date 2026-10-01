@@ -5402,6 +5402,7 @@ MonoBehaviour:
   jackpotFillSpeedUpgradeBtn: {fileID: 176683841}
   chanceCoinDropUpgradeCostText: {fileID: 265990471}
   coinChanceUpgradeBtn: {fileID: 201094671}
+  jackpotUpgradeBtn: {fileID: 545282517}
   clickHandler: {fileID: 835154518}
   upgradeManager: {fileID: 1854912356}
   gameplayManager: {fileID: 357477766}
@@ -5664,19 +5665,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c38f3bfc9b1cc47a72fa4a5a6a57e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
-  clickUpgradeCost: 1
-  chanceDropUpgradeCost: 1
-  countCoinForDropUpgradeCost: 1
-  jackpotUpgradeCost: 1
-  _jackpotFillSpeedUpgradeCost: 1
-  autoclickerUnlockCost: 1
-  autoclickerUpgradeCost: 1
-  clickUpgradeCostFactor: 1
-  chanceDropUpgradeCostFactor: 1
-  countCoinForDropUpgradeCostFactor: 1
-  jackpotUpgradeCostFactor: 1
-  _jackpotFillSpeedUpgradeCostFactor: 1
-  autoclickerUpgradeCostFactor: 1
+  clickUpgradeCost: 1000
+  chanceDropUpgradeCost: 250
+  countCoinForDropUpgradeCost: 125
+  jackpotUpgradeCost: 500
+  _jackpotFillSpeedUpgradeCost: 200
+  autoclickerUnlockCost: 1000
+  autoclickerUpgradeCost: 3000
+  clickUpgradeCostFactor: 1.55
+  chanceDropUpgradeCostFactor: 1.15
+  countCoinForDropUpgradeCostFactor: 1.25
+  jackpotUpgradeCostFactor: 1.4
+  _jackpotFillSpeedUpgradeCostFactor: 1.2
+  autoclickerUpgradeCostFactor: 1.35
   coinManager: {fileID: 2014381976}
   gameplayManager: {fileID: 357477766}
 --- !u!4 &1854912357
@@ -6105,10 +6106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc775c983a505774c8b7241e874a4554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinManager
-  jackpotAmount: 150
-  countCoinForDrop: 100
-  coinDropChance: 50
-  jackpotAmountUppgradeFactor: 2.5
+  jackpotAmount: 75
+  countCoinForDrop: 5
+  coinDropChance: 5
+  jackpotAmountUppgradeFactor: 1.5
+  _jackpotMaxAmount: 1000000
+  upgradeCountCoinForDrop: 10
   clickHendler: {fileID: 835154518}
   gameplayManager: {fileID: 357477766}
   progressBarManager: {fileID: 251461763}

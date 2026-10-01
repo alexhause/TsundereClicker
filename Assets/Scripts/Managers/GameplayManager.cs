@@ -37,7 +37,7 @@ public class GameplayManager : MonoBehaviour
             autoClickerUnlock = clickHandler.AutoClickerEnable,
             clickUpgradeCost = upgradeManager.ClickUpgradeCost,
             chanceHeartDropUpgradeCost = upgradeManager.ChanceCoinDropUpgradeCost,
-            countHeartForDrop = coinManager.CountCoinForDrop,
+            countHeartForDropUpgradeCost = upgradeManager.CountCoinForDroupgradeCost,
             jackpotFillSpeedUpgradeCost = upgradeManager.JackpotFillSpeedUpgradeCost,
             jackpotUpgradeCost = upgradeManager.JackpotUpgradeCost,
             jackpotReward = coinManager.JackpotAmount,

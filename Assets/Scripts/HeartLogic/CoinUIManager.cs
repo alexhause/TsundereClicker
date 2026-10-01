@@ -61,8 +61,6 @@ public class CoinUIManager : MonoBehaviour
         currentCoinCountText.text = newCount.ToString();
     }
 
-
-
     private void CoinManager_OnCoinDrop(int currentCoinCount)
     {
         currentCoinCountText.text = currentCoinCount.ToString();

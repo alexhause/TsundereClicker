@@ -11,6 +11,7 @@ public class CoinManager : MonoBehaviour
     public event Action OnJackpotAmountChange;
     public event Action OnMaxDropChance;
     public event Action OnJackpotPayout;
+    public event Action OnJackpotRewardMax;
 
     private int currentHeartCount = 0;
 
@@ -18,6 +19,8 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private int countCoinForDrop = 0; //сколько монет дают за один дроп
     [SerializeField, Range(2, 100)] private int coinDropChance = 5; //вероятсность дропа
     [SerializeField] private float jackpotAmountUppgradeFactor = 2.5f;
+    [SerializeField] private int _jackpotMaxAmount;
+    [SerializeField] private int upgradeCountCoinForDrop;
 
     [SerializeField] private ClickHandler clickHendler;
     [SerializeField] private GameplayManager gameplayManager;
@@ -28,6 +31,8 @@ public class CoinManager : MonoBehaviour
     public int CoinDropChance { get { return coinDropChance; } }
     public int CountCoinForDrop { get { return countCoinForDrop; } }
     public int JackpotAmount { get { return jackpotAmount; } }
+    public int JackpotMaxAmount { get { return _jackpotMaxAmount; } }
+
 
     private void Awake()
     {
@@ -53,8 +58,18 @@ public class CoinManager : MonoBehaviour
     private void UpgradeManager_OnJackpotUpgrade()
     {
         float newJackpotAmount = jackpotAmount * jackpotAmountUppgradeFactor;
-        jackpotAmount = (int)newJackpotAmount;
-        OnJackpotAmountChange?.Invoke();
+        if(newJackpotAmount >= _jackpotMaxAmount)
+        {
+            jackpotAmount = _jackpotMaxAmount;
+            OnJackpotAmountChange?.Invoke();
+            OnJackpotRewardMax?.Invoke();
+            return;
+        }
+        else
+        {
+            jackpotAmount = (int)newJackpotAmount;
+            OnJackpotAmountChange?.Invoke();
+        }
     }
 
     private void UpgradeManager_OnChanceCoinDropUpgrade()
@@ -76,7 +91,7 @@ public class CoinManager : MonoBehaviour
 
     private void UpgradeManager_OnCoutCoinForDropUpgrade()
     {
-        countCoinForDrop += 1;
+        countCoinForDrop += upgradeCountCoinForDrop;
         OnCountCoinForDropChange?.Invoke();
     }
 
