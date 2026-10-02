@@ -4,7 +4,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
 
-    public event Action OnStageComplete;
+    public event Action<StageData> OnStageComplete;
     public event Action<StageData> OnStageChanged;
     public event Action<LevelData> OnNewLevelStart;
     public int StageTargetScore {  get; private set; }
@@ -64,7 +64,7 @@ public class LevelManager : MonoBehaviour
     private void CompleteStage()
     {
         Debug.Log("STAGE COMPLETE!");
-        OnStageComplete?.Invoke();
+        OnStageComplete?.Invoke(levels[currentLevel].stages[currentStage]);
         if (IsLastStage())
         {
             CompleteLevel();

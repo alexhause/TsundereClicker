@@ -10,11 +10,13 @@ public class GameplayAudio : MonoBehaviour
     [SerializeField] private AudioClip music;
     [SerializeField] private AudioClip _noCoinSFX;
     [SerializeField] private AudioClip _autoclicekrUnlocSFX;
+    [SerializeField] private AudioClip _stageComplitedSFX;
 
     [SerializeField] private ClickHandler clickHandler;
     [SerializeField] private ProgressBarManager progressBarManager;
     [SerializeField] private CoinManager coinManager;
     [SerializeField] private UpgradeManager upgradeManager;
+    [SerializeField] private LevelManager levelManager;
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class GameplayAudio : MonoBehaviour
         upgradeManager.OnAutoclickerUnlock += AutoclickerUnlockSFXPlay;
         progressBarManager.OnBarFilled += OrgasmSFXPlay;
         coinManager.OnCoinDrop += CoinDropSFXPlay;
+        levelManager.OnStageComplete += StageCompliteSFXPlay;
     }
 
     private void Start()
@@ -39,6 +42,7 @@ public class GameplayAudio : MonoBehaviour
         upgradeManager.OnAutoclickerUnlock -= AutoclickerUnlockSFXPlay;
         progressBarManager.OnBarFilled -= OrgasmSFXPlay;
         coinManager.OnCoinDrop -= CoinDropSFXPlay;
+        levelManager.OnStageComplete -= StageCompliteSFXPlay;
     }
 
     private void UpgradeSFXPlay()
@@ -69,5 +73,10 @@ public class GameplayAudio : MonoBehaviour
     private void NoCoinSFXPlay()
     {
         AudioManager.Instance.PlaySFX(_noCoinSFX);
+    }
+
+    private void StageCompliteSFXPlay(StageData save)
+    {
+        AudioManager.Instance.PlaySFX(_stageComplitedSFX);
     }
 }

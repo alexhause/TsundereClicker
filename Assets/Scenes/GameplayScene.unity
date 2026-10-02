@@ -2226,10 +2226,12 @@ MonoBehaviour:
   music: {fileID: 8300000, guid: b8ce808008afb29428d70197064a84f2, type: 3}
   _noCoinSFX: {fileID: 8300000, guid: 590d9e1341cf8a94392af1d3cd07d9d1, type: 3}
   _autoclicekrUnlocSFX: {fileID: 8300000, guid: 7ca2266d32cc2e74b9151a7770b32560, type: 3}
+  _stageComplitedSFX: {fileID: 8300000, guid: ff5788f0138ef7145b6d5c7ef7308979, type: 3}
   clickHandler: {fileID: 835154518}
   progressBarManager: {fileID: 251461763}
   coinManager: {fileID: 2014381976}
   upgradeManager: {fileID: 1854912356}
+  levelManager: {fileID: 2045400575}
 --- !u!1 &458931275 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4456623962844418225, guid: ddddfac19f0165a43ba210d4380d1dbf, type: 3}
@@ -6116,6 +6118,7 @@ MonoBehaviour:
   gameplayManager: {fileID: 357477766}
   progressBarManager: {fileID: 251461763}
   upgradeManager: {fileID: 1854912356}
+  levelManager: {fileID: 2045400575}
 --- !u!4 &2014381977
 Transform:
   m_ObjectHideFlags: 0

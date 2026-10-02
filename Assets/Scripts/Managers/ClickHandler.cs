@@ -105,7 +105,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
         autoClickerEnable = true;
     }
 
-    private void LevelManager_OnStageComplete()
+    private void LevelManager_OnStageComplete(StageData stage)
     {
         totalClick = 0;
         OnTotalClickChange?.Invoke();

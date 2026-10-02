@@ -22,7 +22,7 @@ public class LevelProgressBarManager : MonoBehaviour
         gameplayManager.OnGameLoad += GameplayManager_OnGameLoad;
     }
 
-    private void LevelManager_OnStageComplete()
+    private void LevelManager_OnStageComplete(StageData stage)
     {
         progressBarFillImage.fillAmount = 0;
         progressBarFill = 0;

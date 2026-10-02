@@ -26,6 +26,7 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private GameplayManager gameplayManager;
     [SerializeField] ProgressBarManager progressBarManager;
     [SerializeField] private UpgradeManager upgradeManager;
+    [SerializeField] private LevelManager levelManager;
 
     public int CurrentCoinCount { get { return currentHeartCount; }  }
     public int CoinDropChance { get { return coinDropChance; } }
@@ -41,6 +42,7 @@ public class CoinManager : MonoBehaviour
         clickHendler.OnClick += ClickHendler_OnClick;
         upgradeManager.OnChanceCoinDropUpgrade += UpgradeManager_OnChanceCoinDropUpgrade;
         upgradeManager.OnCoutCoinForDropUpgrade += UpgradeManager_OnCoutCoinForDropUpgrade;
+        levelManager.OnStageComplete += LevelManager_OnStageComplete;
 
         progressBarManager.OnBarFilled += ProgressBarManager_OnBarFilled;
     }
@@ -53,6 +55,7 @@ public class CoinManager : MonoBehaviour
         upgradeManager.OnJackpotUpgrade -= UpgradeManager_OnJackpotUpgrade;
         progressBarManager.OnBarFilled -= ProgressBarManager_OnBarFilled;
         gameplayManager.OnGameLoad -= GameplayManager_OnGameLoad;
+        levelManager.OnStageComplete -= LevelManager_OnStageComplete;
     }
 
     private void UpgradeManager_OnJackpotUpgrade()
@@ -70,6 +73,12 @@ public class CoinManager : MonoBehaviour
             jackpotAmount = (int)newJackpotAmount;
             OnJackpotAmountChange?.Invoke();
         }
+    }
+
+    private void LevelManager_OnStageComplete(StageData stage)
+    {
+        currentHeartCount += stage.stageCompletionReward;
+        OnHeartCountChange?.Invoke(currentHeartCount);
     }
 
     private void UpgradeManager_OnChanceCoinDropUpgrade()
